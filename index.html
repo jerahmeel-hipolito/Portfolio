@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Jerahmeel Hipolito — Instructional Designer & Statistician</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ivory: #F9F5EE;
+    --cream: #F0EAD6;
+    --ink: #1C1814;
+    --ink-soft: #3D3530;
+    --ink-muted: #7A6E66;
+    --amber: #C17B2F;
+    --amber-light: #F0D5A8;
+    --teal: #2A6B65;
+    --teal-light: #C8E6E3;
+    --border: #DDD5C4;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+    --mono: 'DM Mono', monospace;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--ivory);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(249,245,238,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 clamp(1.5rem, 5vw, 4rem);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+  }
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--amber); }
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--amber); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(4rem, 10vh, 8rem) clamp(1.5rem, 8vw, 8rem);
+    position: relative;
+    overflow: hidden;
+  }
+  #hero::before {
+    content: '';
+    position: absolute;
+    top: -10%;
+    right: -5%;
+    width: 55vw;
+    height: 110%;
+    background: radial-gradient(ellipse at top right, var(--amber-light) 0%, transparent 65%);
+    opacity: 0.45;
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 1.25rem;
+    animation: fadeUp 0.6s ease both;
+  }
+  h1.hero-name {
+    font-family: var(--serif);
+    font-size: clamp(3.2rem, 8vw, 7rem);
+    font-weight: 300;
+    line-height: 1.0;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+  h1.hero-name em {
+    font-style: italic;
+    color: var(--amber);
+  }
+  .hero-title {
+    font-family: var(--serif);
+    font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+    font-weight: 300;
+    color: var(--ink-muted);
+    letter-spacing: 0.04em;
+    margin-bottom: 2rem;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+  .hero-desc {
+    max-width: 520px;
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+    animation: fadeUp 0.6s 0.3s ease both;
+  }
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    animation: fadeUp 0.6s 0.4s ease both;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.7rem 1.6rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+  .btn-primary {
+    background: var(--ink);
+    color: var(--ivory);
+    border: 1px solid var(--ink);
+  }
+  .btn-primary:hover { background: var(--amber); border-color: var(--amber); }
+  .btn-outline {
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--border);
+  }
+  .btn-outline:hover { border-color: var(--amber); color: var(--amber); }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 2.5rem;
+    left: clamp(1.5rem, 8vw, 8rem);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    animation: fadeUp 0.6s 0.6s ease both;
+  }
+  .scroll-line {
+    width: 32px;
+    height: 1px;
+    background: var(--amber);
+    display: inline-block;
+  }
+
+  /* ── SECTIONS ── */
+  section {
+    padding: clamp(4rem, 8vh, 6rem) clamp(1.5rem, 8vw, 8rem);
+  }
+  section:nth-child(even) { background: var(--cream); }
+
+  .section-eyebrow {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 0.6rem;
+  }
+  h2.section-title {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+  h2.section-title em { font-style: italic; color: var(--amber); }
+  .section-rule {
+    width: 40px;
+    height: 1px;
+    background: var(--amber);
+    margin-bottom: 3rem;
+  }
+
+  /* ── ABOUT ── */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+  .about-text p {
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    line-height: 1.85;
+    margin-bottom: 1rem;
+  }
+  .about-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  .stat-cell {
+    background: var(--ivory);
+    padding: 1.5rem;
+  }
+  section:nth-child(even) .stat-cell { background: var(--cream); }
+  .stat-num {
+    font-family: var(--serif);
+    font-size: 2.4rem;
+    font-weight: 600;
+    color: var(--amber);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+  .stat-label {
+    font-size: 0.75rem;
+    color: var(--ink-muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  /* ── SKILLS ── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 2rem;
+  }
+  .skill-card {
+    background: var(--cream);
+    padding: 1.5rem 1.25rem;
+    transition: background 0.2s;
+  }
+  .skill-card:hover { background: var(--amber-light); }
+  .skill-icon {
+    width: 32px;
+    height: 32px;
+    background: var(--teal-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.75rem;
+  }
+  .skill-icon svg { width: 15px; height: 15px; stroke: var(--teal); fill: none; stroke-width: 2; stroke-linecap: round; }
+  .skill-name {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.25rem;
+  }
+  .skill-sub {
+    font-size: 0.72rem;
+    color: var(--ink-muted);
+  }
+
+  .tools-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .tool-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.35rem 0.85rem;
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    font-size: 0.75rem;
+    color: var(--ink-soft);
+    background: var(--ivory);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    transition: all 0.2s;
+  }
+  .tool-pill:hover { border-color: var(--amber); color: var(--amber); background: var(--amber-light); }
+
+  /* ── EXPERIENCE ── */
+  .timeline {
+    position: relative;
+    padding-left: 2rem;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 6px;
+    bottom: 0;
+    width: 1px;
+    background: var(--border);
+  }
+  .timeline-item {
+    position: relative;
+    margin-bottom: 3rem;
+    padding-left: 1.5rem;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -2rem;
+    top: 7px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--amber);
+    border: 2px solid var(--ivory);
+    box-shadow: 0 0 0 1px var(--amber);
+  }
+  .timeline-meta {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    color: var(--amber);
+    text-transform: uppercase;
+    margin-bottom: 0.3rem;
+  }
+  .timeline-role {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.1rem;
+    line-height: 1.2;
+  }
+  .timeline-org {
+    font-size: 0.82rem;
+    color: var(--teal);
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+  }
+  .timeline-body {
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+    line-height: 1.8;
+  }
+  .timeline-body ul { padding-left: 1.1rem; }
+  .timeline-body li { margin-bottom: 0.3rem; }
+
+  /* ── COURSES ── */
+  .courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  .course-card {
+    background: var(--ivory);
+    border: 1px solid var(--border);
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+  .course-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--amber);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+  .course-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(28,24,20,0.1);
+    border-color: var(--amber-light);
+  }
+  .course-card:hover::before { transform: scaleX(1); }
+  .course-thumb {
+    aspect-ratio: 16/9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-size: 3rem;
+    font-weight: 300;
+    color: white;
+  }
+  .course-thumb.c1 { background: linear-gradient(135deg, #2A6B65, #1a4744); }
+  .course-thumb.c2 { background: linear-gradient(135deg, #C17B2F, #8a5520); }
+  .course-thumb.c3 { background: linear-gradient(135deg, #3D3530, #1C1814); }
+  .course-thumb.c4 { background: linear-gradient(135deg, #5a5a8a, #3a3a60); }
+  .course-body { padding: 1.25rem; flex: 1; display: flex; flex-direction: column; }
+  .course-tag {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 0.5rem;
+  }
+  .course-title {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+  .course-desc {
+    font-size: 0.8rem;
+    color: var(--ink-muted);
+    line-height: 1.65;
+    flex: 1;
+    margin-bottom: 1rem;
+  }
+  .course-link {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--teal);
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+  .course-link svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: transform 0.2s; }
+  .course-card:hover .course-link svg { transform: translateX(3px); }
+
+  /* ── EDUCATION & AWARDS ── */
+  .edu-awards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+  .edu-block h3 {
+    font-family: var(--serif);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.2rem;
+  }
+  .edu-block .school {
+    font-size: 0.82rem;
+    color: var(--teal);
+    font-weight: 500;
+    margin-bottom: 0.15rem;
+  }
+  .edu-block .year {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    color: var(--ink-muted);
+    letter-spacing: 0.06em;
+  }
+  .edu-block .honor {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.72rem;
+    font-weight: 500;
+    padding: 0.25rem 0.7rem;
+    background: var(--amber-light);
+    color: var(--amber);
+    border-radius: 100px;
+    margin-top: 0.5rem;
+    letter-spacing: 0.04em;
+  }
+  .divider-line {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 1.5rem 0;
+  }
+
+  .awards-list { list-style: none; }
+  .awards-list li {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.88rem;
+  }
+  .awards-list li:first-child { border-top: 1px solid var(--border); }
+  .award-year {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    color: var(--amber);
+    white-space: nowrap;
+    letter-spacing: 0.06em;
+    min-width: 30px;
+  }
+  .award-name { color: var(--ink-soft); flex: 1; }
+  .award-org {
+    font-size: 0.75rem;
+    color: var(--ink-muted);
+  }
+
+  /* ── CONTACT ── */
+  #contact { text-align: center; }
+  .contact-lead {
+    font-family: var(--serif);
+    font-size: clamp(1.4rem, 3vw, 2.2rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--ink-soft);
+    max-width: 500px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.5;
+  }
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 2rem clamp(1.5rem, 8vw, 8rem);
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.75rem;
+    color: var(--ink-muted);
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  footer a { color: var(--amber); text-decoration: none; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { padding: 0 1.25rem; }
+    .nav-links { display: none; }
+    .about-grid,
+    .edu-awards-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .skills-grid { grid-template-columns: 1fr 1fr; }
+    .about-stats { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a class="nav-logo" href="#hero">JH<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#courses">Courses</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <p class="hero-eyebrow">Instructional Designer &amp; Statistician · Philippines</p>
+  <h1 class="hero-name">Jerahmeel<br /><em>Hipolito</em></h1>
+  <p class="hero-title">Designing Learning Experiences · Grounded in Data</p>
+  <p class="hero-desc">
+    Magna Cum Laude graduate of BS Mathematics with Applied Statistics. I build e-learning courses 
+    that are evidence-based, accessible, and genuinely useful — combining a statistician's rigor 
+    with an instructional designer's craft.
+  </p>
+  <div class="hero-cta">
+    <a class="btn btn-primary" href="#courses">View Sample Courses</a>
+    <a class="btn btn-outline" href="#contact">Get in Touch</a>
+    <a class="btn btn-outline" href="./Jerahmeel_Hipolito_CV.pdf" target="_blank" rel="noopener">Download CV</a>
+  </div>
+  <div class="hero-scroll">
+    <span class="scroll-line"></span> Scroll to explore
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section id="about">
+  <p class="section-eyebrow reveal">01 — About</p>
+  <h2 class="section-title reveal">Who I <em>am</em></h2>
+  <div class="section-rule reveal"></div>
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <p>
+        I'm a fresh graduate of BS Mathematics (Applied Statistics) from Bulacan State University, 
+        where I graduated Magna Cum Laude in 2025. My work sits at the intersection of 
+        data-driven thinking and human-centered design.
+      </p>
+      <p>
+        As a freelance Instructional Designer at TAGLearning, I developed 13 e-learning courses 
+        for special education professionals — translating dense legal and procedural content into 
+        structured, learner-centered experiences using Articulate Rise 360 and Thinkific.
+      </p>
+      <p>
+        I'm passionate about how well-designed learning experiences can genuinely change what 
+        people know and can do. I'm eager to bring that passion to a collaborative ID team 
+        where data and design work together.
+      </p>
+    </div>
+    <div class="about-stats reveal">
+      <div class="stat-cell">
+        <div class="stat-num">13</div>
+        <div class="stat-label">E-Learning Courses Built</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">1.86</div>
+        <div class="stat-label">GWA · Magna Cum Laude</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">4</div>
+        <div class="stat-label">Awards · Class of 2025</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">2</div>
+        <div class="stat-label">Research Papers Contributed</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SKILLS ── -->
+<section id="skills">
+  <p class="section-eyebrow reveal">02 — Skills</p>
+  <h2 class="section-title reveal">What I <em>bring</em></h2>
+  <div class="section-rule reveal"></div>
+
+  <div class="skills-grid reveal">
+    <div class="skill-card">
+      <div class="skill-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      </div>
+      <div class="skill-name">E-Learning Development</div>
+      <div class="skill-sub">Articulate Rise 360, Thinkific</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      </div>
+      <div class="skill-name">Curriculum & Course Design</div>
+      <div class="skill-sub">ADDIE, Learning Outcome Mapping</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+      </div>
+      <div class="skill-name">Needs Analysis</div>
+      <div class="skill-sub">Gap analysis, audience research</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      </div>
+      <div class="skill-name">Storyboarding</div>
+      <div class="skill-sub">Content structure, visual flow</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">
+        <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      </div>
+      <div class="skill-name">Statistical Analysis</div>
+      <div class="skill-sub">R, SPSS, applied statistics</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+      </div>
+      <div class="skill-name">Accessible Content Design</div>
+      <div class="skill-sub">Inclusive, UDL-aligned courses</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">
+        <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      </div>
+      <div class="skill-name">Research & Writing</div>
+      <div class="skill-sub">Literature review, technical writing</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">
+        <svg viewBox="0 0 24 24"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M13 6h3a2 2 0 0 1 2 2v7"/><line x1="6" y1="9" x2="6" y2="21"/></svg>
+      </div>
+      <div class="skill-name">GenAI in Learning</div>
+      <div class="skill-sub">AI integration, equity in AI</div>
+    </div>
+  </div>
+
+  <div style="margin-top: 2rem;" class="reveal">
+    <p style="font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-muted); margin-bottom:0.75rem; font-family:var(--mono);">Tools &amp; Platforms</p>
+    <div class="tools-row">
+      <span class="tool-pill">Articulate Rise 360</span>
+      <span class="tool-pill">Thinkific</span>
+      <span class="tool-pill">R</span>
+      <span class="tool-pill">SPSS</span>
+      <span class="tool-pill">Microsoft Excel</span>
+      <span class="tool-pill">Google Workspace</span>
+      <span class="tool-pill">Canva</span>
+      <span class="tool-pill">HTML / CSS / JS</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── EXPERIENCE ── -->
+<section id="experience">
+  <p class="section-eyebrow reveal">03 — Experience</p>
+  <h2 class="section-title reveal">What I've <em>done</em></h2>
+  <div class="section-rule reveal"></div>
+
+  <div class="timeline reveal">
+
+    <div class="timeline-item">
+      <div class="timeline-meta">2024 – 2025 · Freelance</div>
+      <div class="timeline-role">Instructional Designer</div>
+      <div class="timeline-org">TAGLearning</div>
+      <div class="timeline-body">
+        <ul>
+          <li>Designed and developed 13 e-learning courses for SPED educators covering AI integration, compliance, ethical documentation, and inclusive education.</li>
+          <li>Courses include: <em>Using AI for Student Well-Being</em>, <em>Medical Awareness for Educators</em>, <em>Crisis Prevention and Intervention for Leaders</em>, <em>AI for Equity: Addressing Bias and Accessibility in AI-Driven Learning</em>, and more.</li>
+          <li>Translated dense legal and procedural material into structured, learner-centered experiences using Articulate Rise 360 and Thinkific.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-meta">2023 – 2025 · Part-time</div>
+      <div class="timeline-role">Research Assistant</div>
+      <div class="timeline-org">Mathematics Department, College of Science — Bulacan State University</div>
+      <div class="timeline-body">
+        <ul>
+          <li>Conducted literature reviews and assisted in writing research papers for the department.</li>
+          <li>Benchmarked gig workers and gig economy data; analyzed copyright factors across countries relative to the creative economy.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-meta">2024 · Internship</div>
+      <div class="timeline-role">Statistical Methodology Unit Intern</div>
+      <div class="timeline-org">Office of the National Statistician — Philippine Statistics Authority</div>
+      <div class="timeline-body">
+        <p>Supported the Statistical Methodology Unit in research and methodological work under the Philippine Statistics Authority.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-meta">2025 · National Conference</div>
+      <div class="timeline-role">Paper Presenter</div>
+      <div class="timeline-org">16th National Convention on Statistics — Philippine Statistics Authority</div>
+      <div class="timeline-body">
+        <p>Presented original research on GenAI Usage at the Computational Statistics Session, representing Bulacan State University at the national conference.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── COURSES ── -->
+<section id="courses">
+  <p class="section-eyebrow reveal">04 — Sample Coursework</p>
+  <h2 class="section-title reveal">Instructional Design <em>Portfolio</em></h2>
+  <div class="section-rule reveal"></div>
+  <p class="reveal" style="font-size:0.88rem; color:var(--ink-muted); max-width:560px; margin-bottom:2.5rem; line-height:1.8;">
+    A selection of e-learning modules built with Articulate Rise 360, demonstrating course architecture, 
+    learner-centered design, and instructional writing across different content types.
+  </p>
+
+  <div class="courses-grid reveal">
+
+    <a class="course-card" href="./courses/intro-to-rise360/index.html" target="_blank" rel="noopener">
+      <div class="course-thumb c1">01</div>
+      <div class="course-body">
+        <div class="course-tag">Tool Proficiency · Beginner</div>
+        <div class="course-title">Introduction to Articulate Rise 360</div>
+        <div class="course-desc">A guided orientation to the Rise 360 authoring environment — blocks, layouts, settings, and publishing workflows for new e-learning designers.</div>
+        <div class="course-link">
+          Launch Course
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+      </div>
+    </a>
+
+    <a class="course-card" href="./courses/what-is-gamification/index.html" target="_blank" rel="noopener">
+      <div class="course-thumb c2">02</div>
+      <div class="course-body">
+        <div class="course-tag">Instructional Strategy · Intermediate</div>
+        <div class="course-title">What is Gamification?</div>
+        <div class="course-desc">Explores the theory and application of gamification in learning design — points, badges, leaderboards, and game mechanics that motivate learners without trivializing content.</div>
+        <div class="course-link">
+          Launch Course
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+      </div>
+    </a>
+
+    <a class="course-card" href="./courses/html-css-js-basics/index.html" target="_blank" rel="noopener">
+      <div class="course-thumb c3">03</div>
+      <div class="course-body">
+        <div class="course-tag">Technical Content · Beginner</div>
+        <div class="course-title">HTML, CSS, and JavaScript Basics</div>
+        <div class="course-desc">An introductory module on front-end web fundamentals — designed to demonstrate how technical subject matter can be structured into accessible, engaging micro-lessons.</div>
+        <div class="course-link">
+          Launch Course
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+      </div>
+    </a>
+
+    <a class="course-card" href="./courses/navigation-tutorial-rise360/index.html" target="_blank" rel="noopener">
+      <div class="course-thumb c4">04</div>
+      <div class="course-body">
+        <div class="course-tag">Learner Onboarding · Beginner</div>
+        <div class="course-title">Navigation Tutorial on Rise 360</div>
+        <div class="course-desc">A learner-facing orientation module that walks users through how to navigate a Rise 360 course — built as a meta-example of clear UX writing and onboarding design.</div>
+        <div class="course-link">
+          Launch Course
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ── EDUCATION & AWARDS ── -->
+<section id="education">
+  <p class="section-eyebrow reveal">05 — Education &amp; Honors</p>
+  <h2 class="section-title reveal">Where I <em>studied</em></h2>
+  <div class="section-rule reveal"></div>
+
+  <div class="edu-awards-grid reveal">
+    <div>
+      <p style="font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-muted); font-family:var(--mono); margin-bottom:1.25rem;">Academic Background</p>
+
+      <div class="edu-block" style="margin-bottom:1.5rem;">
+        <h3>BS Mathematics, Specialization in Applied Statistics</h3>
+        <p class="school">Bulacan State University — College of Science</p>
+        <p class="year">2021 – 2025</p>
+        <span class="honor">★ Magna Cum Laude</span>
+      </div>
+
+      <hr class="divider-line" />
+
+      <div class="edu-block">
+        <h3>Senior High School</h3>
+        <p class="school">Jesus Is Lord Colleges Foundation, Inc.</p>
+        <p class="year">2019 – 2021</p>
+        <span class="honor">★ With High Honors</span>
+      </div>
+    </div>
+
+    <div>
+      <p style="font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-muted); font-family:var(--mono); margin-bottom:1.25rem;">Awards &amp; Recognition</p>
+      <ul class="awards-list">
+        <li>
+          <span class="award-year">2025</span>
+          <span class="award-name">Magna Cum Laude</span>
+          <span class="award-org">BulSU</span>
+        </li>
+        <li>
+          <span class="award-year">2025</span>
+          <span class="award-name">Outstanding Student Award</span>
+          <span class="award-org">College of Science</span>
+        </li>
+        <li>
+          <span class="award-year">2025</span>
+          <span class="award-name">Best in Specialization</span>
+          <span class="award-org">College of Science</span>
+        </li>
+        <li>
+          <span class="award-year">2025</span>
+          <span class="award-name">Best Thesis</span>
+          <span class="award-org">College of Science</span>
+        </li>
+        <li>
+          <span class="award-year">2025</span>
+          <span class="award-name">Paper Presenter — 16th NCS</span>
+          <span class="award-org">PSA</span>
+        </li>
+        <li>
+          <span class="award-year">2023–25</span>
+          <span class="award-name">President, CS Band</span>
+          <span class="award-org">BulSU</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section id="contact" style="background:var(--ink);">
+  <p class="section-eyebrow" style="color:var(--amber); text-align:center;">06 — Contact</p>
+  <p class="contact-lead" style="color:rgba(249,245,238,0.6);">
+    Open to instructional design roles, e-learning projects, and research collaborations.
+  </p>
+  <div class="contact-links">
+    <a class="btn btn-primary" style="background:var(--amber); border-color:var(--amber); color:var(--ink);" href="mailto:jerahmeel.hipolito@gmail.com">Email Me</a>
+    <a class="btn btn-outline" style="color:rgba(249,245,238,0.8); border-color:rgba(249,245,238,0.2);" href="https://github.com/jerahmeelhipolito" target="_blank" rel="noopener">GitHub</a>
+    <a class="btn btn-outline" style="color:rgba(249,245,238,0.8); border-color:rgba(249,245,238,0.2);" href="https://linkedin.com/in/jerahmeelhipolito" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <span>© 2025 Jerahmeel Hipolito</span>
+  <span>Built with HTML &amp; CSS · Hosted on <a href="https://pages.github.com" target="_blank" rel="noopener">GitHub Pages</a></span>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        e.target.style.transitionDelay = (i * 0.07) + 's';
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
