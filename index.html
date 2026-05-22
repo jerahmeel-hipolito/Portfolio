@@ -111,52 +111,18 @@
   /* HERO RIGHT VISUAL */
   .hero-right {
     position: relative; z-index: 1;
-    display: flex; flex-direction: column; gap: 1rem;
+    display: flex; align-items: center; justify-content: center;
     animation: fadeUp 0.7s 0.3s ease both;
   }
-  .hero-vis-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1.1rem 1.25rem;
-    box-shadow: 0 4px 20px rgba(37,99,235,0.07);
+  .hero-image {
+    width: 100%;
+    height: 100%;
+    max-height: 520px;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(11,31,82,0.08);
+    border: 1px solid var(--border-soft);
   }
-  .hero-vis-label {
-    font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--blue); font-weight: 600; margin-bottom: 0.5rem;
-  }
-  .hero-vis-title {
-    font-size: 0.82rem; font-weight: 600; color: var(--navy); margin-bottom: 0.65rem; line-height: 1.3;
-  }
-  /* Bar chart visual */
-  .mini-chart { display: flex; align-items: flex-end; gap: 5px; height: 52px; }
-  .bar {
-    flex: 1; border-radius: 3px 3px 0 0;
-    background: var(--blue-pale);
-    transition: background 0.2s;
-    position: relative;
-  }
-  .bar.hi { background: var(--blue); }
-  .bar.mid { background: var(--blue-mid); }
-  .bar:hover { background: var(--blue-dark); }
-  .chart-label { font-size: 0.6rem; color: var(--text-muted); margin-top: 0.35rem; display: flex; gap: 5px; }
-  .chart-label span { flex: 1; text-align: center; }
-  /* Stats row */
-  .hero-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.6rem; }
-  .hero-stat {
-    background: var(--blue-ghost); border: 1px solid var(--border-soft);
-    border-radius: 8px; padding: 0.75rem 0.85rem; text-align: center;
-  }
-  .hero-stat-num { font-size: 1.4rem; font-weight: 700; color: var(--blue); line-height: 1; margin-bottom: 0.2rem; letter-spacing: -0.02em; }
-  .hero-stat-lbl { font-size: 0.62rem; color: var(--text-muted); font-weight: 500; text-transform: uppercase; letter-spacing: 0.04em; line-height: 1.3; }
-  /* Progress lines */
-  .hero-progress-row { display: flex; flex-direction: column; gap: 0.55rem; }
-  .prog-item { display: flex; flex-direction: column; gap: 0.2rem; }
-  .prog-header { display: flex; justify-content: space-between; align-items: center; }
-  .prog-name { font-size: 0.7rem; font-weight: 500; color: var(--navy); }
-  .prog-pct { font-size: 0.68rem; color: var(--blue); font-weight: 600; }
-  .prog-track { height: 5px; background: var(--blue-pale); border-radius: 100px; overflow: hidden; }
-  .prog-fill { height: 100%; background: var(--blue); border-radius: 100px; }
 
   /* ── BUTTONS ── */
   .btn {
@@ -363,7 +329,6 @@
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a class="nav-logo" href="#hero">JH<span>.</span></a>
   <ul class="nav-links">
@@ -377,7 +342,6 @@
   </ul>
 </nav>
 
-<!-- HERO -->
 <section id="hero">
   <div class="hero-left">
     <p class="hero-eyebrow">Instructional Designer &amp; Statistician · Philippines</p>
@@ -396,75 +360,11 @@
     <div class="hero-scroll"><span class="scroll-line"></span> Scroll to explore</div>
   </div>
 
-  <!-- HERO RIGHT VISUAL -->
   <div class="hero-right">
-    <!-- Stat cards -->
-    <div class="hero-vis-card">
-      <div class="hero-vis-label">At a Glance</div>
-      <div class="hero-stat-row">
-        <div class="hero-stat">
-          <div class="hero-stat-num">13</div>
-          <div class="hero-stat-lbl">Courses Built</div>
-        </div>
-        <div class="hero-stat">
-          <div class="hero-stat-num">4</div>
-          <div class="hero-stat-lbl">Awards 2025</div>
-        </div>
-        <div class="hero-stat">
-          <div class="hero-stat-num">1.29</div>
-          <div class="hero-stat-lbl">GWA · MCL</div>
-        </div>
-      </div>
-    </div>
-    <!-- Mini bar chart -->
-    <div class="hero-vis-card">
-      <div class="hero-vis-label">Research · GenAI Usage Trend (BulSU 2013–2023)</div>
-      <div class="hero-vis-title">AI-Flagged Papers over Time</div>
-      <div class="mini-chart">
-        <div class="bar" style="height:8%"></div>
-        <div class="bar" style="height:8%"></div>
-        <div class="bar" style="height:10%"></div>
-        <div class="bar" style="height:10%"></div>
-        <div class="bar" style="height:12%"></div>
-        <div class="bar" style="height:14%"></div>
-        <div class="bar" style="height:18%"></div>
-        <div class="bar mid" style="height:28%"></div>
-        <div class="bar mid" style="height:48%"></div>
-        <div class="bar hi" style="height:75%"></div>
-        <div class="bar hi" style="height:100%"></div>
-      </div>
-      <div class="chart-label">
-        <span>2013</span><span></span><span></span><span></span><span></span>
-        <span></span><span></span><span></span><span></span><span></span>
-        <span>2023</span>
-      </div>
-    </div>
-    <!-- Skill proficiency bars -->
-    <div class="hero-vis-card">
-      <div class="hero-vis-label">Core Competencies</div>
-      <div class="hero-progress-row">
-        <div class="prog-item">
-          <div class="prog-header"><span class="prog-name">E-Learning Development</span><span class="prog-pct">95%</span></div>
-          <div class="prog-track"><div class="prog-fill" style="width:95%"></div></div>
-        </div>
-        <div class="prog-item">
-          <div class="prog-header"><span class="prog-name">Statistical Analysis</span><span class="prog-pct">92%</span></div>
-          <div class="prog-track"><div class="prog-fill" style="width:92%"></div></div>
-        </div>
-        <div class="prog-item">
-          <div class="prog-header"><span class="prog-name">Curriculum Design</span><span class="prog-pct">88%</span></div>
-          <div class="prog-track"><div class="prog-fill" style="width:88%"></div></div>
-        </div>
-        <div class="prog-item">
-          <div class="prog-header"><span class="prog-name">Data Visualization</span><span class="prog-pct">82%</span></div>
-          <div class="prog-track"><div class="prog-fill" style="width:82%"></div></div>
-        </div>
-      </div>
-    </div>
+    <img class="hero-image" src="https://images.unsplash.com/photo-1522204523234-8729aa6e3d5f?auto=format&fit=crop&w=800&q=80" alt="E-learning and professional workspace" loading="lazy" />
   </div>
 </section>
 
-<!-- ABOUT -->
 <section id="about">
   <p class="section-eyebrow reveal">01 — About</p>
   <h2 class="section-title reveal">Who I <span>am</span></h2>
@@ -500,7 +400,6 @@
   </div>
 </section>
 
-<!-- SKILLS -->
 <section id="skills">
   <p class="section-eyebrow reveal">02 — Skills</p>
   <h2 class="section-title reveal">What I <span>bring</span></h2>
@@ -587,7 +486,6 @@
   </div>
 </section>
 
-<!-- EXPERIENCE -->
 <section id="experience">
   <p class="section-eyebrow reveal">03 — Experience</p>
   <h2 class="section-title reveal">What I've <span>done</span></h2>
@@ -640,7 +538,6 @@
   </div>
 </section>
 
-<!-- COURSES -->
 <section id="courses">
   <p class="section-eyebrow reveal">04 — Sample Coursework</p>
   <h2 class="section-title reveal">Instructional Design <span>Portfolio</span></h2>
@@ -666,7 +563,7 @@
 
     <a class="course-card" href="./courses/what-is-gamification/index.html" target="_blank" rel="noopener">
       <div class="course-thumb">
-        <img src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&fit=crop&w=640&q=80" alt="Game controller representing gamification" loading="lazy" onerror="this.parentElement.style.background='var(--blue-pale)';this.style.display='none'" />
+        <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=640&q=80" alt="Interactive learning on a tablet" loading="lazy" onerror="this.parentElement.style.background='var(--blue-pale)';this.style.display='none'" />
         <div class="course-thumb-overlay"><span class="course-num">Course 02</span></div>
       </div>
       <div class="course-body">
@@ -706,7 +603,6 @@
   </div>
 </section>
 
-<!-- EDUCATION & AWARDS -->
 <section id="education">
   <p class="section-eyebrow reveal">05 — Education &amp; Honors</p>
   <h2 class="section-title reveal">Where I <span>studied</span></h2>
@@ -748,7 +644,6 @@
   </div>
 </section>
 
-<!-- RESEARCH PAPER -->
 <section id="research">
   <p class="section-eyebrow reveal">06 — Undergraduate Research</p>
   <h2 class="section-title reveal">Published <span>Study</span></h2>
@@ -756,7 +651,6 @@
 
   <div class="paper-wrapper reveal">
 
-    <!-- Left: stylized cover card -->
     <div class="paper-cover">
       <div class="paper-cover-badge">
         <svg style="width:10px;height:10px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
@@ -786,8 +680,14 @@
       </div>
     </div>
 
-    <!-- Right: content -->
     <div class="paper-content">
+      <div>
+        <p class="paper-section-label">Abstract</p>
+        <p class="paper-abstract">
+          With the rise of GenAI, its increasing use in academia has become a cause for concern regarding research integrity. However, studies analyzing its usage trends, whether in global or local contexts and even in Bulacan State University (BulSU), are still limited. This study analyzes GenAI usage trends in BulSU from 2013 to 2023, analyzing 6,343 research papers authored by students and detected 262 AI-flagged papers using Quillbot Premium. Due to the presence of excess zeroes in the data, Zero-Inflated Beta and Tobit models were applied to trend analysis, while Latent Growth Mixture Models (LGMM) determined distinct class trajectories. By 2023, the expected AI scores of Quadratic Tobit were censored at 0% for individual-level and reached 33.36% for discipline-level. Additionally, the trend of AI scores behaves in a way that suggests a rapid move toward full adoption (censored at 100%) by 2026 for both levels, based on projections extrapolated from the 2013–2023 observed data. Furthermore, the Quadratic LGMM classified disciplines into three latent class groups and are described based on Roger's Innovation Diffusion Theory with Innovators and Early Adopters, Early and Late Majority, and Laggards, where Early and Late Majority show a trend behavior that reaches GenAI usage censored at 100% by year 2026, which overtakes Innovators and Early Adopters with only 87.33%. The findings show that GenAI usage in academic research shows a clear upward trend while varying from disciplines. As GenAI may become fully integrated in the coming years based on the direction of the current trend, the study highlights the need for ethical GenAI usage while encouraging innovation in research.
+        </p>
+      </div>
+
       <div>
         <p class="paper-section-label">Keywords</p>
         <div class="paper-kw-row">
@@ -796,15 +696,7 @@
           <span class="paper-kw">Zero-Inflated Beta</span>
           <span class="paper-kw">Tobit Model</span>
           <span class="paper-kw">GenAI Usage &amp; Adoption</span>
-          <span class="paper-kw">Academic Research</span>
         </div>
-      </div>
-
-      <div>
-        <p class="paper-section-label">Abstract</p>
-        <p class="paper-abstract">
-          With the rise of GenAI, its increasing use in academia has become a cause for concern regarding research integrity. However, studies analyzing its usage trends, whether in global or local contexts and even in Bulacan State University (BulSU), are still limited. This study analyzes GenAI usage trends in BulSU from 2013 to 2023, analyzing 6,343 research papers authored by students and detected 262 AI-flagged papers using Quillbot Premium. Due to the presence of excess zeroes in the data, Zero-Inflated Beta and Tobit models were applied to trend analysis, while Latent Growth Mixture Models (LGMM) determined distinct class trajectories. By 2023, the expected AI scores of Quadratic Tobit were censored at 0% for individual-level and reached 33.36% for discipline-level. Additionally, the trend of AI scores behaves in a way that suggests a rapid move toward full adoption (censored at 100%) by 2026 for both levels, based on projections extrapolated from the 2013–2023 observed data. Furthermore, the Quadratic LGMM classified disciplines into three latent class groups and are described based on Roger's Innovation Diffusion Theory with Innovators and Early Adopters, Early and Late Majority, and Laggards, where Early and Late Majority show a trend behavior that reaches GenAI usage censored at 100% by year 2026, which overtakes Innovators and Early Adopters with only 87.33%. The findings show that GenAI usage in academic research shows a clear upward trend while varying from disciplines. As GenAI may become fully integrated in the coming years based on the direction of the current trend, the study highlights the need for ethical GenAI usage while encouraging innovation in research.
-        </p>
       </div>
 
       <div>
@@ -837,18 +729,16 @@
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact" style="background:var(--navy);">
   <p class="section-eyebrow" style="color:var(--blue-light);text-align:center;">06 — Contact</p>
   <p class="contact-lead">Open to instructional design roles, e-learning projects, and research collaborations.</p>
   <div class="contact-links">
     <a class="btn btn-primary" href="mailto:hipolitojerahmeel12@gmail.com">Email Me</a>
     <a class="btn btn-outline" style="color:rgba(238,244,255,0.8);border-color:rgba(147,197,253,0.3);" href="https://github.com/jerahmeel-hipolito" target="_blank" rel="noopener">GitHub</a>
-    <a class="btn btn-outline" style="color:rgba(238,244,255,0.8);border-color:rgba(147,197,253,0.3);" href="linkedin.com/in/jerahmeel-hipolito-304241369" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="btn btn-outline" style="color:rgba(238,244,255,0.8);border-color:rgba(147,197,253,0.3);" href="https://linkedin.com/in/jerahmeel-hipolito-304241369" target="_blank" rel="noopener">LinkedIn</a>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <span>© 2025 Jerahmeel Hipolito</span>
   <span>Built with HTML &amp; CSS · Hosted on <a href="https://pages.github.com" target="_blank" rel="noopener">GitHub Pages</a></span>
