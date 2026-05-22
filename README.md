@@ -80,9 +80,9 @@ For each Rise 360 course:
 
 ## Contact
 
-- **Email:** jerahmeel.hipolito@gmail.com
-- **LinkedIn:** [linkedin.com/in/jerahmeelhipolito](https://linkedin.com/in/jerahmeelhipolito)
-- **GitHub:** [github.com/jerahmeelhipolito](https://github.com/jerahmeelhipolito)
+- **Email:** hipolitojerahmeel12@gmail.com
+- **LinkedIn:** [linkedin.com/in/jerahmeel-hipolito-304241369](https://linkedin.com/in/jerahmeel-hipolito-304241369)
+- **GitHub:** [github.com/jerahmeel-hipolito](https://github.com/jerahmeel-hipolito)
 
 ---
 
