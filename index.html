@@ -48,68 +48,120 @@
     display: flex; align-items: center; justify-content: space-between;
     height: 54px;
   }
-  .nav-logo {
-    font-size: 1rem; font-weight: 700; letter-spacing: -0.01em;
-    color: var(--navy); text-decoration: none;
-  }
+  .nav-logo { font-size: 1rem; font-weight: 700; letter-spacing: -0.01em; color: var(--navy); text-decoration: none; }
   .nav-logo span { color: var(--blue); }
-  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links { display: flex; gap: 1.75rem; list-style: none; }
   .nav-links a {
     font-size: 0.75rem; font-weight: 500; letter-spacing: 0.07em;
-    text-transform: uppercase; color: var(--text-muted); text-decoration: none;
-    transition: color 0.2s;
+    text-transform: uppercase; color: var(--text-muted); text-decoration: none; transition: color 0.2s;
   }
   .nav-links a:hover { color: var(--blue); }
 
   /* ── HERO ── */
   #hero {
-    min-height: 82vh;
-    display: flex; flex-direction: column; justify-content: center;
-    padding: clamp(3rem, 8vh, 5rem) clamp(1.5rem, 8vw, 7rem);
+    min-height: 80vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 3rem;
+    padding: clamp(2.5rem, 6vh, 5rem) clamp(1.5rem, 8vw, 7rem);
     position: relative; overflow: hidden;
   }
   #hero::before {
     content: '';
-    position: absolute; top: -20%; right: -8%; width: 60vw; height: 120%;
+    position: absolute; top: -20%; right: -5%; width: 55vw; height: 120%;
     background: radial-gradient(ellipse at top right, var(--blue-pale) 0%, transparent 65%);
-    opacity: 0.7; pointer-events: none;
+    opacity: 0.6; pointer-events: none;
   }
-  #hero::after {
-    content: '';
-    position: absolute; bottom: -10%; left: 30%; width: 40vw; height: 60%;
-    background: radial-gradient(ellipse, var(--blue-ghost) 0%, transparent 70%);
-    pointer-events: none;
-  }
+  .hero-left { position: relative; z-index: 1; }
   .hero-eyebrow {
     font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase;
-    color: var(--blue); font-weight: 500;
-    margin-bottom: 1rem;
+    color: var(--blue); font-weight: 500; margin-bottom: 1rem;
     animation: fadeUp 0.5s ease both;
   }
   h1.hero-name {
-    font-size: clamp(3rem, 8vw, 6.5rem);
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
     font-weight: 700; line-height: 0.95; letter-spacing: -0.03em;
     color: var(--navy); margin-bottom: 0.5rem;
     animation: fadeUp 0.5s 0.08s ease both;
   }
   h1.hero-name span { color: var(--blue); }
   .hero-title {
-    font-size: clamp(0.95rem, 2vw, 1.2rem); font-weight: 400;
-    color: var(--text-muted); letter-spacing: 0.02em; margin-bottom: 1.5rem;
+    font-size: clamp(0.9rem, 1.8vw, 1.1rem); font-weight: 400;
+    color: var(--text-muted); letter-spacing: 0.02em; margin-bottom: 1.25rem;
     animation: fadeUp 0.5s 0.16s ease both;
   }
   .hero-desc {
-    max-width: 500px; font-size: 0.93rem; color: var(--text-soft);
-    line-height: 1.75; margin-bottom: 2rem;
+    max-width: 460px; font-size: 0.92rem; color: var(--text-soft);
+    line-height: 1.75; margin-bottom: 1.75rem;
     animation: fadeUp 0.5s 0.24s ease both;
   }
   .hero-cta {
-    display: flex; gap: 0.75rem; flex-wrap: wrap;
+    display: flex; gap: 0.65rem; flex-wrap: wrap;
     animation: fadeUp 0.5s 0.32s ease both;
   }
+  .hero-scroll {
+    display: flex; align-items: center; gap: 0.6rem; margin-top: 2rem;
+    font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--text-muted);
+    animation: fadeUp 0.5s 0.5s ease both;
+  }
+  .scroll-line { width: 28px; height: 1px; background: var(--blue); display: inline-block; }
+
+  /* HERO RIGHT VISUAL */
+  .hero-right {
+    position: relative; z-index: 1;
+    display: flex; flex-direction: column; gap: 1rem;
+    animation: fadeUp 0.7s 0.3s ease both;
+  }
+  .hero-vis-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.1rem 1.25rem;
+    box-shadow: 0 4px 20px rgba(37,99,235,0.07);
+  }
+  .hero-vis-label {
+    font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--blue); font-weight: 600; margin-bottom: 0.5rem;
+  }
+  .hero-vis-title {
+    font-size: 0.82rem; font-weight: 600; color: var(--navy); margin-bottom: 0.65rem; line-height: 1.3;
+  }
+  /* Bar chart visual */
+  .mini-chart { display: flex; align-items: flex-end; gap: 5px; height: 52px; }
+  .bar {
+    flex: 1; border-radius: 3px 3px 0 0;
+    background: var(--blue-pale);
+    transition: background 0.2s;
+    position: relative;
+  }
+  .bar.hi { background: var(--blue); }
+  .bar.mid { background: var(--blue-mid); }
+  .bar:hover { background: var(--blue-dark); }
+  .chart-label { font-size: 0.6rem; color: var(--text-muted); margin-top: 0.35rem; display: flex; gap: 5px; }
+  .chart-label span { flex: 1; text-align: center; }
+  /* Stats row */
+  .hero-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.6rem; }
+  .hero-stat {
+    background: var(--blue-ghost); border: 1px solid var(--border-soft);
+    border-radius: 8px; padding: 0.75rem 0.85rem; text-align: center;
+  }
+  .hero-stat-num { font-size: 1.4rem; font-weight: 700; color: var(--blue); line-height: 1; margin-bottom: 0.2rem; letter-spacing: -0.02em; }
+  .hero-stat-lbl { font-size: 0.62rem; color: var(--text-muted); font-weight: 500; text-transform: uppercase; letter-spacing: 0.04em; line-height: 1.3; }
+  /* Progress lines */
+  .hero-progress-row { display: flex; flex-direction: column; gap: 0.55rem; }
+  .prog-item { display: flex; flex-direction: column; gap: 0.2rem; }
+  .prog-header { display: flex; justify-content: space-between; align-items: center; }
+  .prog-name { font-size: 0.7rem; font-weight: 500; color: var(--navy); }
+  .prog-pct { font-size: 0.68rem; color: var(--blue); font-weight: 600; }
+  .prog-track { height: 5px; background: var(--blue-pale); border-radius: 100px; overflow: hidden; }
+  .prog-fill { height: 100%; background: var(--blue); border-radius: 100px; }
+
+  /* ── BUTTONS ── */
   .btn {
     display: inline-flex; align-items: center; gap: 0.35rem;
-    padding: 0.65rem 1.4rem; font-family: var(--sans);
+    padding: 0.65rem 1.35rem; font-family: var(--sans);
     font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em;
     text-transform: uppercase; text-decoration: none;
     border-radius: 4px; transition: all 0.2s; cursor: pointer; border: 1.5px solid transparent;
@@ -119,67 +171,38 @@
   .btn-outline { background: transparent; color: var(--navy); border-color: var(--border); }
   .btn-outline:hover { border-color: var(--blue); color: var(--blue); background: var(--blue-ghost); }
 
-  .hero-scroll {
-    position: absolute; bottom: 2rem; left: clamp(1.5rem, 8vw, 7rem);
-    display: flex; align-items: center; gap: 0.6rem;
-    font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase;
-    color: var(--text-muted);
-    animation: fadeUp 0.5s 0.5s ease both;
-  }
-  .scroll-line { width: 28px; height: 1px; background: var(--blue); display: inline-block; }
-
   /* ── SECTIONS ── */
   section { padding: clamp(2.5rem, 5vh, 4rem) clamp(1.5rem, 8vw, 7rem); }
   section:nth-child(even) { background: var(--white); }
 
-  .section-eyebrow {
-    font-size: 0.67rem; letter-spacing: 0.15em; text-transform: uppercase;
-    color: var(--blue); font-weight: 600; margin-bottom: 0.4rem;
-  }
-  h2.section-title {
-    font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 700;
-    letter-spacing: -0.02em; color: var(--navy); margin-bottom: 0.35rem; line-height: 1.1;
-  }
+  .section-eyebrow { font-size: 0.67rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--blue); font-weight: 600; margin-bottom: 0.4rem; }
+  h2.section-title { font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; color: var(--navy); margin-bottom: 0.35rem; line-height: 1.1; }
   h2.section-title span { color: var(--blue); }
   .section-rule { width: 36px; height: 2px; background: var(--blue); margin-bottom: 2rem; border-radius: 2px; }
 
   /* ── ABOUT ── */
-  .about-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;
-  }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
   .about-text p { font-size: 0.92rem; color: var(--text-soft); line-height: 1.8; margin-bottom: 0.9rem; }
-  .about-stats {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
-    background: var(--border); border: 1px solid var(--border); border-radius: 6px; overflow: hidden;
-  }
+  .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
   .stat-cell { background: var(--bg); padding: 1.25rem; }
   section:nth-child(even) .stat-cell { background: var(--blue-ghost); }
-  .stat-num {
-    font-size: 2.2rem; font-weight: 700; color: var(--blue);
-    letter-spacing: -0.03em; line-height: 1; margin-bottom: 0.25rem;
-  }
+  .stat-num { font-size: 2.2rem; font-weight: 700; color: var(--blue); letter-spacing: -0.03em; line-height: 1; margin-bottom: 0.25rem; }
   .stat-label { font-size: 0.7rem; color: var(--text-muted); letter-spacing: 0.04em; text-transform: uppercase; font-weight: 500; }
 
   /* ── SKILLS ── */
   .skills-grid {
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
     gap: 1px; background: var(--border); border: 1px solid var(--border);
     border-radius: 6px; overflow: hidden; margin-bottom: 1.75rem;
   }
-  .skill-card {
-    background: var(--white); padding: 1.25rem 1.1rem;
-    transition: background 0.2s, transform 0.15s;
-  }
+  .skill-card { background: var(--white); padding: 1.2rem 1rem; transition: background 0.2s; }
   section:nth-child(even) .skill-card { background: var(--blue-ghost); }
   .skill-card:hover { background: var(--blue-pale); }
-  .skill-icon {
-    width: 30px; height: 30px; background: var(--blue-pale);
-    border-radius: 6px; display: flex; align-items: center; justify-content: center;
-    margin-bottom: 0.65rem;
-  }
+  .skill-icon { width: 30px; height: 30px; background: var(--blue-pale); border-radius: 6px; display: flex; align-items: center; justify-content: center; margin-bottom: 0.65rem; }
   .skill-icon svg { width: 14px; height: 14px; stroke: var(--blue); fill: none; stroke-width: 2; stroke-linecap: round; }
-  .skill-name { font-size: 0.82rem; font-weight: 600; color: var(--navy); margin-bottom: 0.2rem; }
-  .skill-sub { font-size: 0.7rem; color: var(--text-muted); line-height: 1.4; }
+  .skill-name { font-size: 0.8rem; font-weight: 600; color: var(--navy); margin-bottom: 0.2rem; line-height: 1.25; }
+  .skill-sub { font-size: 0.68rem; color: var(--text-muted); line-height: 1.4; }
 
   .tools-label { font-size: 0.67rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); font-weight: 600; margin-bottom: 0.65rem; }
   .tools-row { display: flex; flex-wrap: wrap; gap: 0.4rem; }
@@ -192,17 +215,9 @@
 
   /* ── EXPERIENCE ── */
   .timeline { position: relative; padding-left: 1.75rem; }
-  .timeline::before {
-    content: ''; position: absolute; left: 0; top: 6px; bottom: 0;
-    width: 1px; background: var(--border-soft);
-  }
+  .timeline::before { content: ''; position: absolute; left: 0; top: 6px; bottom: 0; width: 1px; background: var(--border-soft); }
   .timeline-item { position: relative; margin-bottom: 2.25rem; padding-left: 1.25rem; }
-  .timeline-item::before {
-    content: ''; position: absolute; left: -1.75rem; top: 6px;
-    width: 8px; height: 8px; border-radius: 50%;
-    background: var(--blue); border: 2px solid var(--bg);
-    box-shadow: 0 0 0 1px var(--blue);
-  }
+  .timeline-item::before { content: ''; position: absolute; left: -1.75rem; top: 6px; width: 8px; height: 8px; border-radius: 50%; background: var(--blue); border: 2px solid var(--bg); box-shadow: 0 0 0 1px var(--blue); }
   .timeline-meta { font-size: 0.67rem; letter-spacing: 0.1em; color: var(--blue); text-transform: uppercase; font-weight: 600; margin-bottom: 0.2rem; }
   .timeline-role { font-size: 1.05rem; font-weight: 700; color: var(--navy); margin-bottom: 0.1rem; line-height: 1.2; }
   .timeline-org { font-size: 0.8rem; color: var(--blue-mid); font-weight: 500; margin-bottom: 0.6rem; }
@@ -211,50 +226,23 @@
   .timeline-body li { margin-bottom: 0.25rem; }
 
   /* ── COURSES ── */
-  .courses-grid {
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-    gap: 1.25rem;
-  }
+  .courses-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 1.25rem; }
   .course-card {
-    background: var(--white); border: 1px solid var(--border);
-    border-radius: 8px; text-decoration: none; display: flex;
-    flex-direction: column; overflow: hidden;
+    background: var(--white); border: 1px solid var(--border); border-radius: 8px;
+    text-decoration: none; display: flex; flex-direction: column; overflow: hidden;
     transition: transform 0.22s, box-shadow 0.22s, border-color 0.22s;
   }
-  .course-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 16px 40px rgba(37,99,235,0.13);
-    border-color: var(--blue-light);
-  }
-  .course-thumb {
-    aspect-ratio: 16/9; position: relative; overflow: hidden;
-    background: var(--blue-pale);
-  }
-  .course-thumb img {
-    width: 100%; height: 100%; object-fit: cover;
-    display: block; transition: transform 0.4s;
-  }
+  .course-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(37,99,235,0.13); border-color: var(--blue-light); }
+  .course-thumb { aspect-ratio: 16/9; position: relative; overflow: hidden; background: var(--blue-pale); }
+  .course-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s; }
   .course-card:hover .course-thumb img { transform: scale(1.04); }
-  .course-thumb-overlay {
-    position: absolute; inset: 0;
-    background: linear-gradient(160deg, rgba(11,31,82,0.55) 0%, rgba(37,99,235,0.35) 100%);
-    display: flex; align-items: flex-end; padding: 0.85rem;
-  }
-  .course-num {
-    font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em;
-    text-transform: uppercase; color: rgba(255,255,255,0.85);
-    background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25);
-    padding: 0.2rem 0.55rem; border-radius: 100px; backdrop-filter: blur(4px);
-  }
+  .course-thumb-overlay { position: absolute; inset: 0; background: linear-gradient(160deg, rgba(11,31,82,0.55) 0%, rgba(37,99,235,0.35) 100%); display: flex; align-items: flex-end; padding: 0.85rem; }
+  .course-num { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); padding: 0.2rem 0.55rem; border-radius: 100px; backdrop-filter: blur(4px); }
   .course-body { padding: 1.1rem 1.1rem 1.2rem; flex: 1; display: flex; flex-direction: column; }
   .course-tag { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue); font-weight: 600; margin-bottom: 0.4rem; }
   .course-title { font-size: 1rem; font-weight: 700; color: var(--navy); line-height: 1.25; margin-bottom: 0.45rem; }
   .course-desc { font-size: 0.78rem; color: var(--text-muted); line-height: 1.65; flex: 1; margin-bottom: 0.9rem; }
-  .course-link {
-    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em;
-    text-transform: uppercase; color: var(--blue);
-    display: flex; align-items: center; gap: 0.35rem;
-  }
+  .course-link { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--blue); display: flex; align-items: center; gap: 0.35rem; }
   .course-link svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; transition: transform 0.18s; }
   .course-card:hover .course-link svg { transform: translateX(3px); }
 
@@ -263,31 +251,78 @@
   .edu-block h3 { font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 0.2rem; }
   .edu-block .school { font-size: 0.8rem; color: var(--blue-mid); font-weight: 500; margin-bottom: 0.12rem; }
   .edu-block .year { font-size: 0.68rem; color: var(--text-muted); letter-spacing: 0.06em; font-weight: 500; }
-  .edu-block .honor {
-    display: inline-flex; align-items: center; gap: 0.25rem;
-    font-size: 0.7rem; font-weight: 600; padding: 0.22rem 0.65rem;
-    background: var(--blue-pale); color: var(--blue-dark);
-    border-radius: 100px; margin-top: 0.45rem; letter-spacing: 0.03em;
-  }
+  .edu-block .honor { display: inline-flex; align-items: center; gap: 0.25rem; font-size: 0.7rem; font-weight: 600; padding: 0.22rem 0.65rem; background: var(--blue-pale); color: var(--blue-dark); border-radius: 100px; margin-top: 0.45rem; letter-spacing: 0.03em; }
+  .edu-block .tag-ongoing { display: inline-flex; align-items: center; gap: 0.25rem; font-size: 0.68rem; font-weight: 600; padding: 0.22rem 0.65rem; background: #D1FAE5; color: #065F46; border-radius: 100px; margin-top: 0.45rem; letter-spacing: 0.03em; }
   .divider-line { border: none; border-top: 1px solid var(--border); margin: 1.25rem 0; }
-
   .awards-list { list-style: none; }
-  .awards-list li {
-    display: flex; align-items: baseline; gap: 0.7rem;
-    padding: 0.65rem 0; border-bottom: 1px solid var(--border-soft);
-    font-size: 0.85rem;
-  }
+  .awards-list li { display: flex; align-items: baseline; gap: 0.7rem; padding: 0.65rem 0; border-bottom: 1px solid var(--border-soft); font-size: 0.85rem; }
   .awards-list li:first-child { border-top: 1px solid var(--border-soft); }
   .award-year { font-size: 0.67rem; color: var(--blue); white-space: nowrap; letter-spacing: 0.06em; font-weight: 600; min-width: 36px; }
   .award-name { color: var(--text-soft); flex: 1; font-weight: 500; }
   .award-org { font-size: 0.72rem; color: var(--text-muted); }
 
+  /* ── RESEARCH PAPER SECTION ── */
+  .paper-wrapper {
+    display: grid; grid-template-columns: 1fr 1.6fr; gap: 3rem; align-items: start;
+  }
+  .paper-cover {
+    background: linear-gradient(145deg, var(--navy) 0%, var(--blue-dark) 100%);
+    border-radius: 10px; padding: 2rem 1.75rem;
+    box-shadow: 0 12px 40px rgba(11,31,82,0.2);
+    display: flex; flex-direction: column; gap: 1.5rem;
+    position: relative; overflow: hidden;
+  }
+  .paper-cover::before {
+    content: '';
+    position: absolute; top: -30%; right: -20%; width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(147,197,253,0.15) 0%, transparent 70%);
+  }
+  .paper-cover-badge {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--blue-light); background: rgba(147,197,253,0.12);
+    border: 1px solid rgba(147,197,253,0.2); padding: 0.3rem 0.75rem; border-radius: 100px;
+    width: fit-content;
+  }
+  .paper-cover-title {
+    font-size: 0.95rem; font-weight: 700; color: #fff; line-height: 1.45;
+  }
+  .paper-cover-authors {
+    font-size: 0.72rem; color: rgba(255,255,255,0.55); line-height: 1.6;
+  }
+  .paper-cover-authors strong { color: rgba(255,255,255,0.85); font-weight: 600; }
+  .paper-cover-meta {
+    display: flex; flex-direction: column; gap: 0.35rem;
+    border-top: 1px solid rgba(147,197,253,0.15); padding-top: 1rem;
+  }
+  .paper-cover-meta-row { display: flex; align-items: center; gap: 0.5rem; }
+  .paper-cover-meta-row svg { width: 12px; height: 12px; stroke: var(--blue-light); fill: none; stroke-width: 2; stroke-linecap: round; flex-shrink: 0; }
+  .paper-cover-meta-row span { font-size: 0.7rem; color: rgba(255,255,255,0.55); }
+  .paper-cover-meta-row strong { color: rgba(255,255,255,0.8); font-weight: 500; }
+
+  .paper-content { display: flex; flex-direction: column; gap: 1.25rem; }
+  .paper-kw-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.25rem; }
+  .paper-kw {
+    font-size: 0.68rem; font-weight: 500; padding: 0.22rem 0.7rem;
+    background: var(--blue-ghost); color: var(--blue-dark); border: 1px solid var(--border);
+    border-radius: 100px; letter-spacing: 0.03em;
+  }
+  .paper-section-label { font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); font-weight: 600; margin-bottom: 0.4rem; }
+  .paper-abstract { font-size: 0.85rem; color: var(--text-soft); line-height: 1.8; }
+  .paper-stats-row {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem;
+  }
+  .paper-stat {
+    background: var(--blue-ghost); border: 1px solid var(--border-soft);
+    border-radius: 8px; padding: 0.85rem 0.75rem; text-align: center;
+  }
+  .paper-stat-num { font-size: 1.35rem; font-weight: 700; color: var(--blue); letter-spacing: -0.02em; line-height: 1; margin-bottom: 0.2rem; }
+  .paper-stat-lbl { font-size: 0.62rem; color: var(--text-muted); font-weight: 500; text-transform: uppercase; letter-spacing: 0.04em; line-height: 1.3; }
+  .paper-cta { display: flex; gap: 0.65rem; flex-wrap: wrap; margin-top: 0.25rem; }
+
   /* ── CONTACT ── */
   #contact { background: var(--navy); text-align: center; }
-  .contact-lead {
-    font-size: clamp(1.1rem, 2.5vw, 1.6rem); font-weight: 300;
-    color: rgba(238,244,255,0.65); max-width: 480px; margin: 0 auto 2rem; line-height: 1.55;
-  }
+  .contact-lead { font-size: clamp(1.05rem, 2.5vw, 1.55rem); font-weight: 300; color: rgba(238,244,255,0.6); max-width: 460px; margin: 0 auto 2rem; line-height: 1.55; }
   .contact-links { display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap; }
 
   /* ── FOOTER ── */
@@ -300,20 +335,29 @@
   footer a { color: var(--blue); text-decoration: none; }
 
   /* ── ANIMATIONS ── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(16px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
   .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
   /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    #hero { grid-template-columns: 1fr; min-height: auto; padding-bottom: 3rem; }
+    .hero-right { display: none; }
+    .skills-grid { grid-template-columns: repeat(2, 1fr); }
+  }
   @media (max-width: 768px) {
     nav { padding: 0 1.25rem; }
     .nav-links { display: none; }
-    .about-grid, .edu-awards-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .about-grid, .edu-awards-grid, .paper-wrapper { grid-template-columns: 1fr; gap: 2rem; }
+    .paper-stats-row { grid-template-columns: repeat(3, 1fr); }
+    h1.hero-name { font-size: clamp(2.6rem, 12vw, 4rem); }
+  }
+  @media (max-width: 480px) {
     .skills-grid { grid-template-columns: 1fr 1fr; }
-    .about-stats { grid-template-columns: 1fr 1fr; }
+    .paper-stats-row { grid-template-columns: 1fr 1fr; }
+  }
+  @media (min-width: 901px) and (max-width: 1200px) {
+    .skills-grid { grid-template-columns: repeat(5, 1fr); }
   }
 </style>
 </head>
@@ -328,26 +372,96 @@
     <li><a href="#experience">Experience</a></li>
     <li><a href="#courses">Courses</a></li>
     <li><a href="#education">Education</a></li>
+    <li><a href="#research">Research</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
 <!-- HERO -->
 <section id="hero">
-  <p class="hero-eyebrow">Instructional Designer &amp; Statistician · Philippines</p>
-  <h1 class="hero-name">Jerahmeel<br><span>Hipolito</span></h1>
-  <p class="hero-title">Designing Learning Experiences · Grounded in Data</p>
-  <p class="hero-desc">
-    Magna Cum Laude graduate of BS Mathematics with Applied Statistics. I build e-learning courses
-    that are evidence-based, accessible, and genuinely useful — combining a statistician's rigor
-    with an instructional designer's craft.
-  </p>
-  <div class="hero-cta">
-    <a class="btn btn-primary" href="#courses">View Sample Courses</a>
-    <a class="btn btn-outline" href="#contact">Get in Touch</a>
-    <a class="btn btn-outline" href="./Jerahmeel_Hipolito_CV.pdf" target="_blank" rel="noopener">Download CV</a>
+  <div class="hero-left">
+    <p class="hero-eyebrow">Instructional Designer &amp; Statistician · Philippines</p>
+    <h1 class="hero-name">Jerahmeel<br><span>Hipolito</span></h1>
+    <p class="hero-title">Designing Learning Experiences · Grounded in Data</p>
+    <p class="hero-desc">
+      Magna Cum Laude graduate of BS Mathematics with Applied Statistics. I build e-learning courses
+      that are evidence-based, accessible, and genuinely useful — combining a statistician's rigor
+      with an instructional designer's craft.
+    </p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#courses">View Sample Courses</a>
+      <a class="btn btn-outline" href="#contact">Get in Touch</a>
+      <a class="btn btn-outline" href="./Jerahmeel_Hipolito_CV.pdf" target="_blank" rel="noopener">Download CV</a>
+    </div>
+    <div class="hero-scroll"><span class="scroll-line"></span> Scroll to explore</div>
   </div>
-  <div class="hero-scroll"><span class="scroll-line"></span> Scroll to explore</div>
+
+  <!-- HERO RIGHT VISUAL -->
+  <div class="hero-right">
+    <!-- Stat cards -->
+    <div class="hero-vis-card">
+      <div class="hero-vis-label">At a Glance</div>
+      <div class="hero-stat-row">
+        <div class="hero-stat">
+          <div class="hero-stat-num">13</div>
+          <div class="hero-stat-lbl">Courses Built</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">4</div>
+          <div class="hero-stat-lbl">Awards 2025</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">1.29</div>
+          <div class="hero-stat-lbl">GWA · MCL</div>
+        </div>
+      </div>
+    </div>
+    <!-- Mini bar chart -->
+    <div class="hero-vis-card">
+      <div class="hero-vis-label">Research · GenAI Usage Trend (BulSU 2013–2023)</div>
+      <div class="hero-vis-title">AI-Flagged Papers over Time</div>
+      <div class="mini-chart">
+        <div class="bar" style="height:8%"></div>
+        <div class="bar" style="height:8%"></div>
+        <div class="bar" style="height:10%"></div>
+        <div class="bar" style="height:10%"></div>
+        <div class="bar" style="height:12%"></div>
+        <div class="bar" style="height:14%"></div>
+        <div class="bar" style="height:18%"></div>
+        <div class="bar mid" style="height:28%"></div>
+        <div class="bar mid" style="height:48%"></div>
+        <div class="bar hi" style="height:75%"></div>
+        <div class="bar hi" style="height:100%"></div>
+      </div>
+      <div class="chart-label">
+        <span>2013</span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        <span>2023</span>
+      </div>
+    </div>
+    <!-- Skill proficiency bars -->
+    <div class="hero-vis-card">
+      <div class="hero-vis-label">Core Competencies</div>
+      <div class="hero-progress-row">
+        <div class="prog-item">
+          <div class="prog-header"><span class="prog-name">E-Learning Development</span><span class="prog-pct">95%</span></div>
+          <div class="prog-track"><div class="prog-fill" style="width:95%"></div></div>
+        </div>
+        <div class="prog-item">
+          <div class="prog-header"><span class="prog-name">Statistical Analysis</span><span class="prog-pct">92%</span></div>
+          <div class="prog-track"><div class="prog-fill" style="width:92%"></div></div>
+        </div>
+        <div class="prog-item">
+          <div class="prog-header"><span class="prog-name">Curriculum Design</span><span class="prog-pct">88%</span></div>
+          <div class="prog-track"><div class="prog-fill" style="width:88%"></div></div>
+        </div>
+        <div class="prog-item">
+          <div class="prog-header"><span class="prog-name">Data Visualization</span><span class="prog-pct">82%</span></div>
+          <div class="prog-track"><div class="prog-fill" style="width:82%"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- ABOUT -->
@@ -357,9 +471,7 @@
   <div class="section-rule reveal"></div>
   <div class="about-grid">
     <div class="about-text reveal">
-      <p>I'm a fresh graduate of BS Mathematics (Applied Statistics) from Bulacan State University,
-      where I graduated Magna Cum Laude in 2025. My work sits at the intersection of
-      data-driven thinking and human-centered design.</p>
+      <p>I am currently pursuing my Master's Degree (MS Statistics) at University of the Philippines Diliman. I graduated Magna Cum Laude in 2025 with a Bachelor of Science in Mathematics with Specialization in Applied Statistics from Bulacan State University. My work sits at the intersection of data-driven thinking and human-centered design.</p>
       <p>As a freelance Instructional Designer at TAGLearning, I developed 13 e-learning courses
       for special education professionals — translating dense legal and procedural content into
       structured, learner-centered experiences using Articulate Rise 360 and Thinkific.</p>
@@ -381,8 +493,8 @@
         <div class="stat-label">Awards · Class of 2025</div>
       </div>
       <div class="stat-cell">
-        <div class="stat-num">2</div>
-        <div class="stat-label">Research Papers Contributed</div>
+        <div class="stat-num">30+</div>
+        <div class="stat-label">Undergraduate Theses Analyzed</div>
       </div>
     </div>
   </div>
@@ -461,13 +573,16 @@
     <p class="tools-label">Tools &amp; Platforms</p>
     <div class="tools-row">
       <span class="tool-pill">Articulate Rise 360</span>
+      <span class="tool-pill">Articulate Storyline</span>
       <span class="tool-pill">Thinkific</span>
       <span class="tool-pill">R</span>
       <span class="tool-pill">SPSS</span>
-      <span class="tool-pill">Microsoft Excel</span>
+      <span class="tool-pill">Microsoft Office</span>
       <span class="tool-pill">Google Workspace</span>
       <span class="tool-pill">Canva</span>
+      <span class="tool-pill">Notion</span>
       <span class="tool-pill">HTML / CSS / JS</span>
+      <span class="tool-pill">Python</span>
     </div>
   </div>
 </section>
@@ -480,12 +595,12 @@
   <div class="timeline reveal">
 
     <div class="timeline-item">
-      <div class="timeline-meta">2024 – 2025 · Freelance</div>
+      <div class="timeline-meta">2025 – Present · Freelance</div>
       <div class="timeline-role">Instructional Designer</div>
       <div class="timeline-org">TAGLearning</div>
       <div class="timeline-body">
         <ul>
-          <li>Designed and developed 13 e-learning courses for SPED educators covering AI integration, compliance, ethical documentation, and inclusive education.</li>
+          <li>Designed and developed 13 e-learning courses for educators covering AI integration, compliance, ethical documentation, and inclusive education.</li>
           <li>Courses include: <em>Using AI for Student Well-Being</em>, <em>Medical Awareness for Educators</em>, <em>Crisis Prevention and Intervention for Leaders</em>, <em>AI for Equity: Addressing Bias and Accessibility in AI-Driven Learning</em>, and more.</li>
           <li>Translated dense legal and procedural material into structured, learner-centered experiences using Articulate Rise 360 and Thinkific.</li>
         </ul>
@@ -534,17 +649,11 @@
     A selection of e-learning modules built with Articulate Rise 360, demonstrating course architecture,
     learner-centered design, and instructional writing across different content types.
   </p>
-
   <div class="courses-grid reveal">
 
     <a class="course-card" href="./courses/intro-to-rise360/index.html" target="_blank" rel="noopener">
       <div class="course-thumb">
-        <img
-          src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=640&q=80"
-          alt="People collaborating on a laptop screen"
-          loading="lazy"
-          onerror="this.parentElement.style.background='var(--blue-pale)';this.style.display='none'"
-        />
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=640&q=80" alt="People collaborating on a laptop" loading="lazy" onerror="this.parentElement.style.background='var(--blue-pale)';this.style.display='none'" />
         <div class="course-thumb-overlay"><span class="course-num">Course 01</span></div>
       </div>
       <div class="course-body">
@@ -557,12 +666,7 @@
 
     <a class="course-card" href="./courses/what-is-gamification/index.html" target="_blank" rel="noopener">
       <div class="course-thumb">
-        <img
-          src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&fit=crop&w=640&q=80"
-          alt="Game controller representing gamification"
-          loading="lazy"
-          onerror="this.parentElement.style.background='var(--blue-pale)';this.style.display='none'"
-        />
+        <img src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&fit=crop&w=640&q=80" alt="Game controller representing gamification" loading="lazy" onerror="this.parentElement.style.background='var(--blue-pale)';this.style.display='none'" />
         <div class="course-thumb-overlay"><span class="course-num">Course 02</span></div>
       </div>
       <div class="course-body">
@@ -575,12 +679,7 @@
 
     <a class="course-card" href="./courses/html-css-js-basics/index.html" target="_blank" rel="noopener">
       <div class="course-thumb">
-        <img
-          src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=640&q=80"
-          alt="Code on a monitor screen"
-          loading="lazy"
-          onerror="this.parentElement.style.background='var(--blue-pale)';this.style.display='none'"
-        />
+        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=640&q=80" alt="Code on a monitor screen" loading="lazy" onerror="this.parentElement.style.background='var(--blue-pale)';this.style.display='none'" />
         <div class="course-thumb-overlay"><span class="course-num">Course 03</span></div>
       </div>
       <div class="course-body">
@@ -593,12 +692,7 @@
 
     <a class="course-card" href="./courses/navigation-tutorial-rise360/index.html" target="_blank" rel="noopener">
       <div class="course-thumb">
-        <img
-          src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=640&q=80"
-          alt="Person navigating through a learning interface"
-          loading="lazy"
-          onerror="this.parentElement.style.background='var(--blue-pale)';this.style.display='none'"
-        />
+        <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=640&q=80" alt="Person studying with guides and maps" loading="lazy" onerror="this.parentElement.style.background='var(--blue-pale)';this.style.display='none'" />
         <div class="course-thumb-overlay"><span class="course-num">Course 04</span></div>
       </div>
       <div class="course-body">
@@ -621,31 +715,123 @@
 
     <div>
       <p style="font-size:0.67rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);font-weight:600;margin-bottom:1rem;">Academic Background</p>
+
       <div class="edu-block" style="margin-bottom:1.25rem;">
+        <h3>MS Statistics</h3>
+        <p class="school">University of the Philippines Diliman</p>
+        <p class="year">2026 – Present</p>
+        <span class="tag-ongoing">● Ongoing</span>
+      </div>
+
+      <hr class="divider-line" />
+
+      <div class="edu-block">
         <h3>BS Mathematics, Specialization in Applied Statistics</h3>
         <p class="school">Bulacan State University — College of Science</p>
         <p class="year">2021 – 2025</p>
         <span class="honor">★ Magna Cum Laude</span>
-      </div>
-      <hr class="divider-line" />
-      <div class="edu-block">
-        <h3>Senior High School</h3>
-        <p class="school">Jesus Is Lord Colleges Foundation, Inc.</p>
-        <p class="year">2019 – 2021</p>
-        <span class="honor">★ With High Honors</span>
       </div>
     </div>
 
     <div>
       <p style="font-size:0.67rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);font-weight:600;margin-bottom:1rem;">Awards &amp; Recognition</p>
       <ul class="awards-list">
-        <li><span class="award-year">2025</span><span class="award-name">Magna Cum Laude</span><span class="award-org">BulSU</span></li>
-        <li><span class="award-year">2025</span><span class="award-name">Outstanding Student Award</span><span class="award-org">Bulacan State University — College of Science</span></li>
-        <li><span class="award-year">2025</span><span class="award-name">Best in Specialization</span><span class="award-org">Bulacan State University — College of Science</span></li>
-        <li><span class="award-year">2025</span><span class="award-name">Best Thesis</span><span class="award-org">Bulacan State University — College of Science</span></li>
+        <li><span class="award-year">2025</span><span class="award-name">Magna Cum Laude</span><span class="award-org">Bulacan State University</span></li>
+        <li><span class="award-year">2025</span><span class="award-name">Outstanding Student Award</span><span class="award-org">Bulacan State University</span></li>
+        <li><span class="award-year">2025</span><span class="award-name">Best in Specialization</span><span class="award-org">Bulacan State University</span></li>
+        <li><span class="award-year">2025</span><span class="award-name">Best Thesis</span><span class="award-org">Bulacan State University</span></li>
         <li><span class="award-year">2025</span><span class="award-name">Paper Presenter — 16th NCS</span><span class="award-org">Philippine Statistics Authority</span></li>
-        <li><span class="award-year">2023–25</span><span class="award-name">President, CS Band</span><span class="award-org">Bulacan State University — College of Science</span></li>
+        <li><span class="award-year">2023–25</span><span class="award-name">President, CS Band</span><span class="award-org">Bulacan State University</span></li>
       </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- RESEARCH PAPER -->
+<section id="research">
+  <p class="section-eyebrow reveal">06 — Undergraduate Research</p>
+  <h2 class="section-title reveal">Published <span>Study</span></h2>
+  <div class="section-rule reveal"></div>
+
+  <div class="paper-wrapper reveal">
+
+    <!-- Left: stylized cover card -->
+    <div class="paper-cover">
+      <div class="paper-cover-badge">
+        <svg style="width:10px;height:10px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        Thesis · Best Paper 2025
+      </div>
+      <div class="paper-cover-title">
+        Zero-Inflated Beta, Tobit, and Latent Growth Mixture Models for Analyzing GenAI Usage Trends and Trajectories
+      </div>
+      <div class="paper-cover-authors">
+        <strong>Jerahmeel S. Hipolito</strong>, Angeli D. Bergonio,<br>
+        Carina Jean A. Damasco, Lance Aron O. Javier,<br>
+        Dr. Marco C. Mandap
+      </div>
+      <div class="paper-cover-meta">
+        <div class="paper-cover-meta-row">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+          <span>Bulacan State University · <strong>College of Science</strong></span>
+        </div>
+        <div class="paper-cover-meta-row">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          <span>Presented at <strong>16th National Convention on Statistics, 2025</strong></span>
+        </div>
+        <div class="paper-cover-meta-row">
+          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          <span>Methods: <strong>ZIB · Tobit · LGMM</strong></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: content -->
+    <div class="paper-content">
+      <div>
+        <p class="paper-section-label">Keywords</p>
+        <div class="paper-kw-row">
+          <span class="paper-kw">GenAI Trends &amp; Trajectories</span>
+          <span class="paper-kw">Latent Growth Mixture Model</span>
+          <span class="paper-kw">Zero-Inflated Beta</span>
+          <span class="paper-kw">Tobit Model</span>
+          <span class="paper-kw">GenAI Usage &amp; Adoption</span>
+          <span class="paper-kw">Academic Research</span>
+        </div>
+      </div>
+
+      <div>
+        <p class="paper-section-label">Abstract</p>
+        <p class="paper-abstract">
+          With the rise of GenAI, its increasing use in academia has become a cause for concern regarding research integrity. However, studies analyzing its usage trends, whether in global or local contexts and even in Bulacan State University (BulSU), are still limited. This study analyzes GenAI usage trends in BulSU from 2013 to 2023, analyzing 6,343 research papers authored by students and detected 262 AI-flagged papers using Quillbot Premium. Due to the presence of excess zeroes in the data, Zero-Inflated Beta and Tobit models were applied to trend analysis, while Latent Growth Mixture Models (LGMM) determined distinct class trajectories. By 2023, the expected AI scores of Quadratic Tobit were censored at 0% for individual-level and reached 33.36% for discipline-level. Additionally, the trend of AI scores behaves in a way that suggests a rapid move toward full adoption (censored at 100%) by 2026 for both levels, based on projections extrapolated from the 2013–2023 observed data. Furthermore, the Quadratic LGMM classified disciplines into three latent class groups and are described based on Roger's Innovation Diffusion Theory with Innovators and Early Adopters, Early and Late Majority, and Laggards, where Early and Late Majority show a trend behavior that reaches GenAI usage censored at 100% by year 2026, which overtakes Innovators and Early Adopters with only 87.33%. The findings show that GenAI usage in academic research shows a clear upward trend while varying from disciplines. As GenAI may become fully integrated in the coming years based on the direction of the current trend, the study highlights the need for ethical GenAI usage while encouraging innovation in research.
+        </p>
+      </div>
+
+      <div>
+        <p class="paper-section-label">Study at a Glance</p>
+        <div class="paper-stats-row">
+          <div class="paper-stat">
+            <div class="paper-stat-num">6,343</div>
+            <div class="paper-stat-lbl">Research Papers Analyzed</div>
+          </div>
+          <div class="paper-stat">
+            <div class="paper-stat-num">262</div>
+            <div class="paper-stat-lbl">AI-Flagged Papers</div>
+          </div>
+          <div class="paper-stat">
+            <div class="paper-stat-num">11</div>
+            <div class="paper-stat-lbl">Years of Data (2013–2023)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="paper-cta">
+        <a class="btn btn-primary" href="./research/GenAI_Usage_Paper.pdf" target="_blank" rel="noopener">
+          <svg style="width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Read Full Paper (PDF)
+        </a>
+        <a class="btn btn-outline" href="#contact">Discuss This Research</a>
+      </div>
     </div>
 
   </div>
@@ -671,10 +857,7 @@
 <script>
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        obs.unobserve(e.target);
-      }
+      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
     });
   }, { threshold: 0.08 });
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
