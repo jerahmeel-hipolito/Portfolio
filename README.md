@@ -3,7 +3,7 @@
 **Instructional Designer · Statistician**  
 Magna Cum Laude, BS Mathematics (Applied Statistics) · Bulacan State University, 2025
 
-> Live site: [[jerahmeelhipolito.github.io](https://jerahmeelhipolito.github.io)](https://github.com/jerahmeel-hipolito/Portfolio)
+> Live site: [jerahmeelhipolito.github.io](https://github.com/jerahmeel-hipolito/Portfolio)
 
 ---
 
