@@ -74,7 +74,7 @@ Presented at the **16th National Convention on Statistics**, Philippine Statisti
 - Analyzed 6,343 research papers from BulSU (2013–2023)
 - Detected 262 AI-flagged papers using Quillbot Premium
 - Applied Zero-Inflated Beta, Tobit, and LGMM models
-- Awarded **Best Thesis 2025**, College of Science
+- Awarded **Best Thesis 2025**, College of Science, Bulacan State University
 
 The full paper is available as a PDF at [`./research/GenAI_Usage_Paper.pdf`](./research/GenAI_Usage_Paper.pdf).
 
