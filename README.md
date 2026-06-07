@@ -21,6 +21,12 @@ This repository hosts my personal portfolio website, sample instructional design
 ├── index.html                              ← Main portfolio page
 ├── Jerahmeel_Hipolito_CV.pdf               ← Downloadable CV
 ├── README.md
+├── certificates/
+│   ├── advancing-ld-professional.pdf
+│   ├── build-skills-instructional-designer.pdf
+│   ├── analytical-skills-statistical-analysis.pdf
+│   ├── complete-guide-r.pdf
+│   └── statistics-foundations-wolfram.pdf
 ├── courses/
 │   ├── intro-to-rise360/                   ← Introduction to Articulate Rise 360
 │   │   └── index.html
@@ -46,7 +52,8 @@ This repository hosts my personal portfolio website, sample instructional design
 | 04 | Sample Coursework | 4 Rise 360 e-learning course demos |
 | 05 | Education & Honors | Academic background and awards |
 | 06 | Research | Undergraduate thesis and published study |
-| 07 | Contact | Email, GitHub, LinkedIn |
+| 07 | Certificates | 5 LinkedIn Learning professional certificates |
+| 08 | Contact | Email, GitHub, LinkedIn |
 
 ---
 
@@ -60,6 +67,22 @@ Each course was built with **Articulate Rise 360** and exported as HTML5. They a
 | 02 | [What is Gamification?](./courses/what-is-gamification/) | Instructional Strategy | Intermediate |
 | 03 | [HTML, CSS, and JavaScript Basics](./courses/html-css-js-basics/) | Technical Content | Beginner |
 | 04 | [Navigation Tutorial on Rise 360](./courses/navigation-tutorial-rise360/) | Learner Onboarding | Beginner |
+
+---
+
+## LinkedIn Learning Certificates
+
+All 5 certificates are stored as PDFs in the `/certificates/` folder and linked from the portfolio's Certificates section.
+
+| # | Certificate | Duration | File |
+|---|-------------|----------|------|
+| 01 | Advancing Your Skills as an L&D Professional | 5 hr 20 min | `advancing-ld-professional.pdf` |
+| 02 | Build Your Skills as an Instructional Designer | 7 hr 43 min | `build-skills-instructional-designer.pdf` |
+| 03 | Build Your Analytical Skills with Statistical Analysis | 5 hr 10 min | `analytical-skills-statistical-analysis.pdf` |
+| 04 | Complete Guide to R: Wrangling, Visualizing, and Modeling Data | 8 hr 15 min | `complete-guide-r.pdf` |
+| 05 | Statistics Foundations Professional Certificate — Wolfram Research | 13 hr | `statistics-foundations-wolfram.pdf` |
+
+**Total: 39 hours 28 minutes of continuing education**
 
 ---
 
@@ -103,6 +126,16 @@ For each Rise 360 course:
 
 ---
 
+## How to Add Certificates
+
+1. Download each certificate PDF from LinkedIn Learning
+2. Rename each file to match the filenames listed in the table above
+3. Create a `/certificates/` folder in the repository root (if it doesn't exist)
+4. Upload all 5 PDFs into `/certificates/`
+5. Commit and push — the "View Certificate" links on the portfolio will work automatically
+
+---
+
 ## Deploying to GitHub Pages
 
 1. Go to your repository on GitHub
@@ -137,7 +170,7 @@ E-Learning Development · Curriculum & Course Design · Needs Analysis · Storyb
 
 - **Email:** hipolitojerahmeel12@gmail.com
 - **LinkedIn:** [linkedin.com/in/jerahmeel-hipolito-304241369](https://linkedin.com/in/jerahmeel-hipolito-304241369)
-- **GitHub:** [github.com/jerahmeel-hipolito](https://github.com/jerahmeel-hipolito)
+- **Facebook:** [facebook.com/hjerahmeel](https://www.facebook.com/hjerahmeel)
 
 ---
 
