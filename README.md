@@ -170,7 +170,7 @@ E-Learning Development · Curriculum & Course Design · Needs Analysis · Storyb
 
 - **Email:** hipolitojerahmeel12@gmail.com
 - **LinkedIn:** [linkedin.com/in/jerahmeel-hipolito-304241369](https://linkedin.com/in/jerahmeel-hipolito-304241369)
-- **Facebook:** [facebook.com/hjerahmeel](https://www.facebook.com/hjerahmeel)
+- **Facebook:** [wa.me/qr/VHKKI6MWM4P2D1](https://wa.me/qr/VHKKI6MWM4P2D1)
 
 ---
 
