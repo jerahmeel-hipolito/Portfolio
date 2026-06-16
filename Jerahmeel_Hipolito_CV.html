@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jerahmeel Hipolito — Curriculum Vitae</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --text-main:   #1a1a2e;
+    --text-muted:  #4a5568;
+    --accent:      #1e3a7b;
+    --accent-mid:  #2c4f9e;
+    --accent-light:#e8eef8;
+    --accent-pale: #f4f7fd;
+    --line-color:  #d8e0f0;
+    --tag-bg:      #eef2fb;
+    --tag-border:  #c2d0ed;
+    --green:       #166534;
+    --green-bg:    #dcfce7;
+  }
+
+  body {
+    background: #d4d9e8;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: var(--text-main);
+    font-size: 10pt;
+    line-height: 1.5;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* ── PAGE SHELLS ── */
+  .page {
+    width: 210mm;
+    margin: 0.35in auto;
+    background: #ffffff;
+    box-shadow: 0 8px 48px rgba(30,58,123,0.14);
+    overflow: hidden;
+    page-break-after: always;
+  }
+  .page:last-child { page-break-after: auto; margin-bottom: 0.35in; }
+
+  /* ── PAGE 1 HEADER (full) ── */
+  .header {
+    background: var(--accent);
+    padding: 0.38in 0.5in 0.28in;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    bottom: -30%; left: -4%;
+    width: 1.6in; height: 1.6in;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.03);
+    pointer-events: none;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    top: -35%; right: -3%;
+    width: 2.4in; height: 2.4in;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+    pointer-events: none;
+  }
+  .name-block h1 {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 30pt;
+    font-weight: 400;
+    color: #ffffff;
+    letter-spacing: 0.01em;
+    line-height: 1;
+    margin-bottom: 6pt;
+  }
+  .name-block .subtitle {
+    font-size: 8.5pt;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: rgba(255,255,255,0.6);
+  }
+  .contact-block {
+    text-align: right;
+    font-size: 8.5pt;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.8;
+  }
+  .contact-block a { color: rgba(255,255,255,0.75); text-decoration: none; }
+
+
+
+  /* ── PAGE 2 HEADER (slim continuation) ── */
+  .header-p2 {
+    background: var(--accent);
+    padding: 10pt 0.5in 10pt;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .header-p2::after {
+    content: '';
+    position: absolute;
+    top: -60%; right: -3%;
+    width: 1.4in; height: 1.4in;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+    pointer-events: none;
+  }
+  .header-p2 .p2-name {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 15pt;
+    font-weight: 400;
+    color: #ffffff;
+    letter-spacing: 0.01em;
+  }
+  .header-p2 .p2-label {
+    font-size: 7.5pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: rgba(255,255,255,0.45);
+  }
+
+  /* ── CORE COMPETENCIES STRIP ── */
+  .kw-strip {
+    background: var(--accent-pale);
+    border-bottom: 1px solid var(--line-color);
+    padding: 11pt 0.5in 13pt;
+  }
+  .kw-strip-label {
+    font-size: 7pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+    color: var(--accent);
+    margin-bottom: 8pt;
+    display: block;
+  }
+  .kw-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4pt 5pt;
+    align-items: center;
+  }
+  .kw {
+    font-size: 7.5pt;
+    font-weight: 600;
+    color: var(--accent-mid);
+    background: var(--tag-bg);
+    border: 1px solid var(--tag-border);
+    padding: 4pt 11pt;
+    border-radius: 10pt;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    line-height: 1;
+    text-align: center;
+  }
+
+  /* ── BODY ── */
+  .body { padding: 0.28in 0.5in 0.38in; }
+
+  /* ── SECTION HEADINGS ── */
+  h2 {
+    font-size: 8pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--accent);
+    margin-top: 16pt;
+    margin-bottom: 7pt;
+    display: flex;
+    align-items: center;
+    gap: 8pt;
+  }
+  h2::before {
+    content: "";
+    display: inline-block;
+    width: 3.5pt;
+    height: 11pt;
+    background: var(--accent);
+    border-radius: 2pt;
+    flex-shrink: 0;
+  }
+  h2::after {
+    content: "";
+    display: block;
+    flex: 1;
+    height: 1px;
+    background: var(--line-color);
+  }
+  h2:first-child { margin-top: 0; }
+
+  /* ── PROFESSIONAL SUMMARY ── */
+  .about-text {
+    font-size: 10pt;
+    line-height: 1.7;
+    text-align: justify;
+    color: var(--text-muted);
+  }
+
+  /* ── SKILLS ── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0 22pt;
+    padding: 10pt 12pt;
+    background: var(--accent-pale);
+    border: 1px solid var(--line-color);
+    border-radius: 5pt;
+  }
+  .skill-col strong {
+    display: block;
+    font-size: 7.5pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--accent);
+    margin-bottom: 4pt;
+    padding-bottom: 3pt;
+    border-bottom: 1px solid var(--line-color);
+  }
+  .skill-col p {
+    font-size: 8.8pt;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* ── ENTRIES ── */
+  .entry { margin-bottom: 11pt; }
+  .entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.5pt;
+    gap: 9pt;
+  }
+  .entry-title { font-size: 10.5pt; font-weight: 700; color: var(--text-main); flex: 1; }
+  .entry-date {
+    font-size: 8pt;
+    font-weight: 600;
+    color: var(--accent);
+    white-space: nowrap;
+    background: var(--accent-light);
+    padding: 2pt 8pt;
+    border-radius: 10pt;
+    letter-spacing: 0.02em;
+    flex-shrink: 0;
+  }
+  .entry-meta {
+    font-size: 9pt;
+    font-style: italic;
+    color: var(--text-muted);
+    margin-bottom: 4pt;
+  }
+
+  /* ── TAGS ── */
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 3.5pt;
+    flex-shrink: 0;
+    margin-left: 8pt;
+  }
+  .tool {
+    font-size: 7pt;
+    font-weight: 600;
+    color: var(--accent-mid);
+    background: var(--tag-bg);
+    border: 1px solid var(--tag-border);
+    padding: 2pt 6pt;
+    border-radius: 3pt;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  /* ── BULLETS ── */
+  ul { list-style-type: none; padding-left: 0; }
+  li {
+    font-size: 9.5pt;
+    line-height: 1.55;
+    margin-bottom: 3.5pt;
+    padding-left: 13pt;
+    position: relative;
+    color: var(--text-muted);
+  }
+  li::before {
+    content: "–";
+    color: var(--accent);
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+  }
+  li strong { color: var(--text-main); font-weight: 600; }
+
+  .project-desc { font-size: 9.2pt; line-height: 1.55; color: var(--text-muted); }
+
+  /* ── CERTIFICATES ── */
+  .cert-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5pt 24pt;
+  }
+  .cert-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 6pt;
+    padding: 5pt 0;
+    border-bottom: 1px solid var(--line-color);
+  }
+  .cert-dot {
+    width: 5pt;
+    height: 5pt;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+    margin-top: 3pt;
+  }
+  .cert-body { flex: 1; }
+  .cert-name { font-size: 9.2pt; font-weight: 600; color: var(--text-main); line-height: 1.35; }
+  .cert-meta-line { font-size: 8pt; color: var(--text-muted); margin-top: 1pt; }
+  .cert-duration {
+    font-size: 7.5pt;
+    font-weight: 600;
+    color: var(--accent);
+    background: var(--accent-light);
+    padding: 1.5pt 6pt;
+    border-radius: 8pt;
+    white-space: nowrap;
+    flex-shrink: 0;
+    letter-spacing: 0.02em;
+    margin-top: 1pt;
+  }
+
+  /* ── BOTTOM GRID (Page 2) ── */
+  .bottom-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 28pt;
+    margin-top: 2pt;
+  }
+
+  /* ── EDUCATION ── */
+  .edu-item { margin-bottom: 9pt; }
+  .edu-header { display: flex; justify-content: space-between; align-items: baseline; gap: 8pt; }
+  .edu-school { font-weight: 700; font-size: 10pt; color: var(--text-main); }
+  .edu-sub { font-size: 9pt; color: var(--text-muted); margin-top: 2pt; line-height: 1.45; }
+  .badge-honor {
+    display: inline-block;
+    font-size: 7.5pt; font-weight: 700;
+    color: var(--accent); background: var(--accent-light);
+    padding: 1.5pt 6pt; border-radius: 3pt;
+    letter-spacing: 0.03em; margin-top: 3pt;
+  }
+  .badge-ongoing {
+    display: inline-block;
+    font-size: 7.5pt; font-weight: 700;
+    color: var(--green); background: var(--green-bg);
+    padding: 1.5pt 6pt; border-radius: 3pt;
+    letter-spacing: 0.03em; margin-top: 3pt;
+  }
+
+  /* ── AWARDS ── */
+  .award-item { margin-bottom: 6pt; }
+  .award-header { display: flex; justify-content: space-between; align-items: baseline; gap: 8pt; }
+  .award-title { font-weight: 700; font-size: 9.5pt; color: var(--text-main); }
+  .award-sub { font-size: 8.5pt; color: var(--text-muted); font-style: italic; margin-top: 1pt; }
+
+  /* ── REFERENCES ── */
+  .ref-item { margin-bottom: 8pt; }
+  .ref-name { font-weight: 700; font-size: 10pt; color: var(--text-main); }
+  .ref-role { font-size: 8.5pt; font-style: italic; color: var(--accent-mid); margin-top: 1pt; }
+  .ref-detail { font-size: 8.5pt; color: var(--text-muted); line-height: 1.6; margin-top: 2pt; }
+
+  /* ── PAGE FOOTER ── */
+  .page-footer {
+    padding: 8pt 0.5in;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--line-color);
+    margin-top: auto;
+  }
+  .page-footer span {
+    font-size: 7pt;
+    color: var(--line-color);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  /* ── PRINT / PDF ── */
+  @media print {
+    html, body { background: #ffffff !important; margin: 0; padding: 0; }
+    .page {
+      margin: 0 !important;
+      box-shadow: none !important;
+      width: 210mm !important;
+      overflow: hidden !important;
+      page-break-after: always;
+      page-break-inside: avoid;
+    }
+    .page:last-child { page-break-after: auto; }
+    @page { size: A4; margin: 0mm; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════ PAGE 1 ═══ -->
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="name-block">
+      <h1>Jerahmeel Hipolito</h1>
+      <div class="subtitle">Instructional Designer &nbsp;·&nbsp; Statistician</div>
+    </div>
+    <div class="contact-block">
+      628 Florante St., Panginay, Balagtas, Bulacan<br>
+      0976 096 7659 &nbsp;·&nbsp; hipolitojerahmeel12@gmail.com<br>
+      <a href="https://jerahmeel-hipolito.github.io/Portfolio">jerahmeel-hipolito.github.io/Portfolio</a>
+    </div>
+  </div>
+
+  <!-- CORE COMPETENCIES STRIP -->
+  <div class="kw-strip">
+    <span class="kw-strip-label">Core Competencies</span>
+    <div class="kw-row">
+      <span class="kw">Statistical Analysis</span>
+      <span class="kw">R &amp; SPSS</span>
+      <span class="kw">Data Visualization</span>
+      <span class="kw">Research &amp; Technical Writing</span>
+      <span class="kw">GenAI in Learning</span>
+      <span class="kw">E-Learning Development</span>
+      <span class="kw">Curriculum &amp; Course Design</span>
+      <span class="kw">Needs Analysis</span>
+      <span class="kw">Accessible Content Design</span>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <!-- PROFESSIONAL SUMMARY -->
+    <h2>Professional Summary</h2>
+    <p class="about-text">
+      Magna Cum Laude graduate of BS Mathematics (Applied Statistics) and incoming MS Statistics student
+      at the University of the Philippines Diliman. Combines a strong foundation in statistical theory and
+      applied research with hands-on experience delivering end-to-end instructional design for US special
+      education professionals — applying ADDIE, rapid iterative development, and AI-powered tools to build
+      scalable, high-quality eLearning using Articulate Rise 360. Skilled at translating complex quantitative
+      concepts into structured, learner-centered content that drives comprehension, skill application, and
+      long-term retention. Recognized as Best Thesis awardee by the College of Science, Bulacan State University,
+      and presented applied statistical research at the National Convention on Statistics.
+    </p>
+
+    <!-- TECHNICAL & PROFESSIONAL SKILLS -->
+    <h2>Technical &amp; Professional Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-col">
+        <strong>Instructional Design</strong>
+        <p>End-to-End ID Process · Needs Analysis · ADDIE Framework · Rapid Iterative Development · Performance-Based Assessments · Learning Outcome Mapping · Storyboarding · Change Management · Accessible Content Design</p>
+      </div>
+      <div class="skill-col">
+        <strong>Tools &amp; Platforms</strong>
+        <p>Articulate Rise 360 · Articulate Storyline · Articulate 360 · Thinkific · R · SPSS · Microsoft Office · Google Workspace · Notion · Canva · HTML / CSS / JS · Python</p>
+      </div>
+      <div class="skill-col">
+        <strong>Research &amp; Analytics</strong>
+        <p>Learner Engagement Analysis · Learning Effectiveness Metrics · Statistical Modeling · Quantitative Research · GenAI Applications in Education · xAPI / Learning Analytics · Technical Writing · Cross-Functional Collaboration</p>
+      </div>
+    </div>
+
+    <!-- WORK EXPERIENCE -->
+    <h2>Work Experience</h2>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Instructional Designer — TAGLearning</span>
+        <span class="entry-date">2025 – Present</span>
+      </div>
+      <div class="entry-meta">Freelance · Remote (US Special Education Sector)</div>
+      <ul>
+        <li><strong>Owned end-to-end ID process</strong> for 13 eLearning courses for educators and professionals, applying rapid iterative development and ADDIE from needs analysis through delivery.</li>
+        <li><strong>Designed performance-based assessments</strong> aligned to learning objectives, ensuring measurable skill application and sustained learner self-sufficiency post-training.</li>
+        <li><strong>Leveraged AI-powered tools</strong> alongside Articulate Rise 360 — including the Code Block feature with HTML, CSS, and JavaScript — to streamline design workflows and improve content scalability across all deliverables.</li>
+        <li><strong>Translated dense legal and compliance content</strong> into structured, learner-centered modules, maintaining quality standards and design consistency across all 13 courses.</li>
+        <li><strong>Collaborated with cross-functional subject-matter experts</strong> to align course content with US compliance standards, current best practices, and evolving product needs.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Intern — Statistical Methodology Unit</span>
+        <span class="entry-date">2025</span>
+      </div>
+      <div class="entry-meta">Office of the National Statistician, Philippine Statistics Authority</div>
+      <ul>
+        <li><strong>Analyzed cross-country copyright frameworks</strong> by benchmarking multiple markets, delivering evidence-based recommendations for national creative economy policy.</li>
+        <li><strong>Produced gig economy data reports</strong> by conducting targeted benchmarking research, informing strategic methodology decisions at the national statistical level.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Research Assistant — Mathematics Department</span>
+        <span class="entry-date">2024 – 2025</span>
+      </div>
+      <div class="entry-meta">College of Science, Bulacan State University</div>
+      <ul>
+        <li><strong>Assisted in academic research</strong> through systematic literature reviews and research paper development, contributing to BulSU's published departmental output.</li>
+      </ul>
+    </div>
+
+  </div><!-- /body page 1 -->
+
+  <div class="page-footer">
+    <span>Jerahmeel S. Hipolito · Curriculum Vitae</span>
+    <span>Page 1 of 2</span>
+  </div>
+
+</div><!-- /page 1 -->
+
+
+<!-- ═══════════════════════════════════════════════ PAGE 2 ═══ -->
+<div class="page">
+
+  <!-- SLIM CONTINUATION HEADER -->
+  <div class="header-p2">
+    <div class="p2-name">Jerahmeel Hipolito</div>
+    <div class="p2-label">Curriculum Vitae — Continued</div>
+  </div>
+
+  <div class="body">
+
+    <!-- RESEARCH & INVOLVEMENT -->
+    <h2>Research &amp; Involvement</h2>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Paper Presenter — 16th National Convention on Statistics</span>
+        <div class="project-tags">
+          <span class="tool">GenAI Analytics</span>
+          <span class="tool">Statistical Modeling</span>
+          <span class="tool">LGMM · Tobit · ZIB</span>
+        </div>
+      </div>
+      <div class="entry-meta">Philippine Statistics Authority &nbsp;·&nbsp; 2025</div>
+      <p class="project-desc">Analyzed <strong>6,343 BulSU research papers (2013–2023)</strong> using Zero-Inflated Beta, Tobit, and Latent Growth Mixture Models to map GenAI usage trajectories across disciplines. Study projected full GenAI adoption in academic research by 2026 based on trend extrapolation. Awarded <strong>Best Thesis 2025</strong> by the College of Science; represented BulSU at the Computational Statistics Session of the national conference.</p>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">President — CS Band</span>
+        <div class="project-tags">
+          <span class="tool">Leadership</span>
+          <span class="tool">Project Management</span>
+        </div>
+      </div>
+      <div class="entry-meta">College of Science, Bulacan State University &nbsp;·&nbsp; 2023 – 2025</div>
+      <p class="project-desc">Led a college-wide performing organization, managing scheduling, cross-team coordination, and event delivery under competing deadlines. Built stakeholder communication and project management skills transferable to fast-paced instructional design environments.</p>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Class Mayor</span>
+        <div class="project-tags">
+          <span class="tool">Representation</span>
+          <span class="tool">Coordination</span>
+        </div>
+      </div>
+      <div class="entry-meta">College of Science, Bulacan State University &nbsp;·&nbsp; 2023 – 2025</div>
+      <p class="project-desc">Served as primary liaison between students and faculty, coordinating academic activities across multiple simultaneous deadlines. Strengthened organizational and communication skills critical in multi-project ID roles.</p>
+    </div>
+
+    <!-- PROFESSIONAL CERTIFICATES -->
+    <h2>Professional Certificates</h2>
+    <div class="cert-grid">
+
+      <div class="cert-item">
+        <div class="cert-dot"></div>
+        <div class="cert-body">
+          <div class="cert-name">Advancing Your Skills as an L&amp;D Professional</div>
+          <div class="cert-meta-line">LinkedIn Learning</div>
+        </div>
+        <div class="cert-duration">5 hr 20 min</div>
+      </div>
+
+      <div class="cert-item">
+        <div class="cert-dot"></div>
+        <div class="cert-body">
+          <div class="cert-name">Build Your Skills as an Instructional Designer</div>
+          <div class="cert-meta-line">LinkedIn Learning</div>
+        </div>
+        <div class="cert-duration">7 hr 43 min</div>
+      </div>
+
+      <div class="cert-item">
+        <div class="cert-dot"></div>
+        <div class="cert-body">
+          <div class="cert-name">Build Your Analytical Skills with Statistical Analysis</div>
+          <div class="cert-meta-line">LinkedIn Learning</div>
+        </div>
+        <div class="cert-duration">5 hr 10 min</div>
+      </div>
+
+      <div class="cert-item">
+        <div class="cert-dot"></div>
+        <div class="cert-body">
+          <div class="cert-name">Complete Guide to R: Wrangling, Visualizing, and Modeling Data</div>
+          <div class="cert-meta-line">LinkedIn Learning</div>
+        </div>
+        <div class="cert-duration">8 hr 15 min</div>
+      </div>
+
+      <div class="cert-item">
+        <div class="cert-dot"></div>
+        <div class="cert-body">
+          <div class="cert-name">Statistics Foundations Professional Certificate</div>
+          <div class="cert-meta-line">LinkedIn Learning &nbsp;·&nbsp; Wolfram Research</div>
+        </div>
+        <div class="cert-duration">13 hr 50 min</div>
+      </div>
+
+    </div>
+
+    <!-- BOTTOM GRID: Education + Awards | References -->
+    <div class="bottom-grid">
+
+      <div>
+        <h2>Education</h2>
+
+        <div class="edu-item">
+          <div class="edu-header">
+            <span class="edu-school">University of the Philippines Diliman</span>
+            <span class="entry-date">2026 – Present</span>
+          </div>
+          <div class="edu-sub">Master of Science in Statistics</div>
+          <div><span class="badge-ongoing">● Admitted · AY 2026–2027</span></div>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-header">
+            <span class="edu-school">Bulacan State University</span>
+            <span class="entry-date">2021 – 2025</span>
+          </div>
+          <div class="edu-sub">BS Mathematics, Specialization in Applied Statistics<br>College of Science</div>
+          <div><span class="badge-honor">★ Magna Cum Laude</span></div>
+        </div>
+
+        <h2>Awards &amp; Honors</h2>
+
+        <div class="award-item">
+          <div class="award-header">
+            <span class="award-title">Magna Cum Laude</span>
+            <span class="entry-date">2025</span>
+          </div>
+          <div class="award-sub">College of Science, Bulacan State University</div>
+        </div>
+        <div class="award-item">
+          <div class="award-header">
+            <span class="award-title">Outstanding Student Award</span>
+            <span class="entry-date">2025</span>
+          </div>
+          <div class="award-sub">College of Science, Bulacan State University</div>
+        </div>
+        <div class="award-item">
+          <div class="award-header">
+            <span class="award-title">Best in Specialization</span>
+            <span class="entry-date">2025</span>
+          </div>
+          <div class="award-sub">College of Science, Bulacan State University</div>
+        </div>
+        <div class="award-item">
+          <div class="award-header">
+            <span class="award-title">Best Thesis</span>
+            <span class="entry-date">2025</span>
+          </div>
+          <div class="award-sub">College of Science, Bulacan State University</div>
+        </div>
+      </div>
+
+      <div>
+        <h2>Character References</h2>
+
+        <div class="ref-item">
+          <div class="ref-name">Marco C. Mandap</div>
+          <div class="ref-role">Instructional Designer</div>
+          <div class="ref-detail">0997 179 6570<br>ianmarkcm@gmail.com</div>
+        </div>
+
+        <div class="ref-item">
+          <div class="ref-name">Carla M. Clemente</div>
+          <div class="ref-role">Faculty, Bulacan State University</div>
+          <div class="ref-detail">0917 916 1733<br>carla.mandap@bulsu.edu.ph</div>
+        </div>
+
+        <div class="ref-item">
+          <div class="ref-name">Mary Ann C. Magtulis</div>
+          <div class="ref-role">Faculty, Bulacan State University</div>
+          <div class="ref-detail">0920 287 8948<br>maryann.magtulis@bulsu.edu.ph</div>
+        </div>
+      </div>
+
+    </div>
+
+  </div><!-- /body page 2 -->
+
+  <div class="page-footer">
+    <span>Jerahmeel S. Hipolito · Curriculum Vitae</span>
+    <span>Page 2 of 2</span>
+  </div>
+
+</div><!-- /page 2 -->
+
+</body>
+</html>
