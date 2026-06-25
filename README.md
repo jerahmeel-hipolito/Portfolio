@@ -29,6 +29,7 @@ This repository hosts my personal portfolio website, sample instructional design
 │   └── statistics-foundations-wolfram.pdf
 │   └── genAI-for-data-analysis-and-data-science.pdf
 │   └── advance-your-skills-in-r.pdf
+│   └── spss-wrangling-visualizing-modeling.pdf
 ├── courses/
 │   ├── intro-to-rise360/                   ← Introduction to Articulate Rise 360
 │   │   └── index.html
@@ -54,7 +55,7 @@ This repository hosts my personal portfolio website, sample instructional design
 | 04 | Sample Coursework | 4 Rise 360 e-learning course demos |
 | 05 | Education & Honors | Academic background and awards |
 | 06 | Research | Undergraduate thesis and published study |
-| 07 | Certificates | 7 LinkedIn Learning professional certificates |
+| 07 | Certificates | 8 LinkedIn Learning professional certificates |
 | 08 | Contact | Email, WhatsApp, LinkedIn |
 
 ---
@@ -74,7 +75,7 @@ Each course was built with **Articulate Rise 360** and exported as HTML5. They a
 
 ## LinkedIn Learning Certificates
 
-All 7 certificates are stored as PDFs in the `/certificates/` folder and linked from the portfolio's Certificates section.
+All 8 certificates are stored as PDFs in the `/certificates/` folder and linked from the portfolio's Certificates section.
 
 | # | Certificate | Duration | File |
 |---|-------------|----------|------|
@@ -85,8 +86,9 @@ All 7 certificates are stored as PDFs in the `/certificates/` folder and linked 
 | 05 | Statistics Foundations Professional Certificate — Wolfram Research | 13 hr 50 min | `statistics-foundations-wolfram.pdf` |
 | 06 | Complete Guide to Generative AI for Data Analysis and Data Science | 10 hr 21 min | `genAI-for-data-analysis-and-data-science.pdf` |
 | 07 | Advance Your Skills in R | 26 hr 6 min | `advance-your-skills-in-r.pdf` |
+| 08 | SPSS: Wrangling, Visualizing, and Modeling Data | 5 hr 52 min | `spss-wrangling-visualizing-modeling.pdf` |
 
-**Total: 76 hours 45 minutes of continuing education**
+**Total: 82 hours 37 minutes of continuing education**
 
 ---
 
