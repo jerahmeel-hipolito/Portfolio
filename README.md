@@ -54,8 +54,8 @@ This repository hosts my personal portfolio website, sample instructional design
 | 04 | Sample Coursework | 4 Rise 360 e-learning course demos |
 | 05 | Education & Honors | Academic background and awards |
 | 06 | Research | Undergraduate thesis and published study |
-| 07 | Certificates | 5 LinkedIn Learning professional certificates |
-| 08 | Contact | Email, GitHub, LinkedIn |
+| 07 | Certificates | 7 LinkedIn Learning professional certificates |
+| 08 | Contact | Email, WhatsApp, LinkedIn |
 
 ---
 
@@ -74,7 +74,7 @@ Each course was built with **Articulate Rise 360** and exported as HTML5. They a
 
 ## LinkedIn Learning Certificates
 
-All 5 certificates are stored as PDFs in the `/certificates/` folder and linked from the portfolio's Certificates section.
+All 7 certificates are stored as PDFs in the `/certificates/` folder and linked from the portfolio's Certificates section.
 
 | # | Certificate | Duration | File |
 |---|-------------|----------|------|
