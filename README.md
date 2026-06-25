@@ -27,6 +27,8 @@ This repository hosts my personal portfolio website, sample instructional design
 │   ├── analytical-skills-statistical-analysis.pdf
 │   ├── complete-guide-r.pdf
 │   └── statistics-foundations-wolfram.pdf
+│   └── genAI-for-data-analysis-and-data-science.pdf
+│   └── advance-your-skills-in-r.pdf
 ├── courses/
 │   ├── intro-to-rise360/                   ← Introduction to Articulate Rise 360
 │   │   └── index.html
