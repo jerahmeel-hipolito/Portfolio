@@ -82,9 +82,11 @@ All 5 certificates are stored as PDFs in the `/certificates/` folder and linked 
 | 02 | Build Your Skills as an Instructional Designer | 7 hr 43 min | `build-skills-instructional-designer.pdf` |
 | 03 | Build Your Analytical Skills with Statistical Analysis | 5 hr 10 min | `analytical-skills-statistical-analysis.pdf` |
 | 04 | Complete Guide to R: Wrangling, Visualizing, and Modeling Data | 8 hr 15 min | `complete-guide-r.pdf` |
-| 05 | Statistics Foundations Professional Certificate — Wolfram Research | 13 hr | `statistics-foundations-wolfram.pdf` |
+| 05 | Statistics Foundations Professional Certificate — Wolfram Research | 13 hr 50 min | `statistics-foundations-wolfram.pdf` |
+| 06 | Complete Guide to Generative AI for Data Analysis and Data Science | 10 hr 21 min | `genAI-for-data-analysis-and-data-science.pdf` |
+| 07 | Advance Your Skills in R | 26 hr 6 min | `advance-your-skills-in-r.pdf` |
 
-**Total: 39 hours 28 minutes of continuing education**
+**Total: 76 hours 45 minutes of continuing education**
 
 ---
 
