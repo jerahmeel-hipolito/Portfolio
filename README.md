@@ -1,6 +1,6 @@
 # Jerahmeel Hipolito — Portfolio
 
-**Instructional Designer · Statistician**  
+**Instructor · Instructional Designer · Statistician**  
 Magna Cum Laude, BS Mathematics (Applied Statistics) · Bulacan State University, 2025  
 MS Statistics (Ongoing) · University of the Philippines Diliman, 2026–Present
 
@@ -52,11 +52,12 @@ This repository hosts my personal portfolio website, sample instructional design
 | 01 | About | Background, bio, and key stats |
 | 02 | Skills | 10 core competencies + tools & platforms |
 | 03 | Experience | Work history and conference presentations |
-| 04 | Sample Coursework | 4 Rise 360 e-learning course demos |
-| 05 | Education & Honors | Academic background and awards |
-| 06 | Research | Undergraduate thesis and published study |
-| 07 | Certificates | 8 LinkedIn Learning professional certificates |
-| 08 | Contact | Email, WhatsApp, LinkedIn |
+| 04 | Teaching | MAS 303a, MAS 305a, MLSBE 201 (Rise 360 microlearning portal) |
+| 05 | Sample Coursework | 4 Rise 360 e-learning course demos |
+| 06 | Education & Honors | Academic background and awards |
+| 07 | Research | Undergraduate thesis and published study |
+| 08 | Certificates | 8 LinkedIn Learning professional certificates |
+| 09 | Contact | Email, WhatsApp, LinkedIn |
 
 ---
 

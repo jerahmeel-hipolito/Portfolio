@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Jerahmeel Hipolito — Instructor at Bulacan State University, instructional designer and statistician." />
+<meta property="og:title" content="Jerahmeel Hipolito — Instructor, Instructional Designer &amp; Statistician" />
 <title>Jerahmeel Hipolito — Instructional Designer & Statistician</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -389,17 +391,59 @@
   @media (min-width: 901px) and (max-width: 1200px) {
     .skills-grid { grid-template-columns: repeat(5, 1fr); }
   }
+
+  /* ===== v2 additions ===== */
+  html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; border-radius: 4px; }
+  .skip-link { position: absolute; left: -999px; top: 8px; background: var(--navy); color: #fff; padding: .5rem 1rem; border-radius: 6px; z-index: 300; font-size: .8rem; }
+  .skip-link:focus { left: 8px; }
+  .nav-links a.active { color: var(--blue); font-weight: 600; }
+  .nav-toggle { display: none; background: none; border: 1px solid var(--border); border-radius: 8px; width: 40px; height: 36px; cursor: pointer; color: var(--navy); font-size: 1.1rem; }
+  .role-badge { display: inline-block; font-size: .6rem; letter-spacing: .1em; text-transform: uppercase; font-weight: 700; padding: .15rem .55rem; border-radius: 100px; margin-left: .5rem; vertical-align: middle; background: var(--blue); color: #fff; }
+  .role-badge.past { background: var(--blue-pale); color: var(--blue-dark); }
+  .tag-row { display: flex; flex-wrap: wrap; gap: .35rem; margin-top: .6rem; }
+  .tag-row span { font-size: .66rem; font-weight: 600; color: var(--blue-dark); background: var(--blue-pale); padding: .18rem .6rem; border-radius: 100px; }
+  .hero-art { width: 100%; height: 100%; display: block; }
+  .teach-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 1.25rem; }
+  .teach-card { background: var(--white); border: 1px solid var(--border-soft); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; transition: transform .2s, box-shadow .2s, border-color .2s; }
+  .teach-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(37,99,235,.13); border-color: var(--blue-light); }
+  .teach-head { padding: 1.2rem 1.2rem 1rem; color: #fff; background:
+    linear-gradient(rgba(255,255,255,.07) 1px, transparent 1px) 0 0/22px 22px,
+    linear-gradient(90deg, rgba(255,255,255,.07) 1px, transparent 1px) 0 0/22px 22px,
+    linear-gradient(150deg, var(--navy), var(--blue)); }
+  .teach-code { font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 700; border-left: 3px solid var(--blue-light); padding-left: .6rem; opacity: .95; }
+  .teach-name { font-size: 1.1rem; font-weight: 700; line-height: 1.25; margin-top: .6rem; }
+  .teach-body { padding: 1.05rem 1.2rem 1.25rem; display: flex; flex-direction: column; flex: 1; }
+  .teach-desc { font-size: .8rem; color: var(--text-muted); line-height: 1.65; margin-bottom: .85rem; }
+  .teach-meta { display: flex; gap: 1rem; font-size: .7rem; color: var(--text-soft); font-weight: 600; margin-bottom: 1rem; }
+  .teach-meta b { color: var(--blue); font-size: .95rem; }
+  .teach-actions { display: flex; gap: .6rem; flex-wrap: wrap; margin-top: auto; }
+  .teach-actions a { font-size: .7rem; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; text-decoration: none; padding: .5rem .9rem; border-radius: 8px; }
+  .teach-actions .primary { background: var(--blue); color: #fff; }
+  .teach-actions .primary:hover { background: var(--blue-dark); }
+  .teach-actions .ghost { border: 1px solid var(--border); color: var(--blue-dark); }
+  .teach-actions .ghost:hover { background: var(--blue-ghost); }
+  .teach-note { font-size: .75rem; color: var(--text-muted); margin-top: 1.25rem; max-width: 640px; line-height: 1.7; }
+  @media (max-width: 768px) {
+    .nav-toggle { display: block; }
+    .nav-links.open { display: flex; flex-direction: column; gap: 0; position: absolute; top: 100%; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--border); padding: .5rem 1.25rem 1rem; }
+    .nav-links.open a { display: block; padding: .6rem 0; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; scroll-behavior: auto !important; } .reveal { opacity: 1 !important; transform: none !important; } }
 </style>
 </head>
 <body>
 
-<nav>
+<a class="skip-link" href="#about">Skip to content</a>
+<nav aria-label="Main">
   <a class="nav-logo" href="#hero">JH<span>.</span></a>
-  <ul class="nav-links">
+  <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navlinks">☰</button>
+  <ul class="nav-links" id="navlinks">
     <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#experience">Experience</a></li>
-    <li><a href="#courses">Courses</a></li>
+    <li><a href="#teaching">Teaching</a></li>
+    <li><a href="#courses">Coursework</a></li>
     <li><a href="#education">Education</a></li>
     <li><a href="#research">Research</a></li>
     <li><a href="#certificates">Certificates</a></li>
@@ -409,16 +453,16 @@
 
 <section id="hero">
   <div class="hero-left">
-    <p class="hero-eyebrow">Instructional Designer &amp; Statistician · Philippines</p>
+    <p class="hero-eyebrow">Instructor · Instructional Designer · Statistician · Philippines</p>
     <h1 class="hero-name">Jerahmeel<br><span>Hipolito</span></h1>
     <p class="hero-title">Designing Learning Experiences · Grounded in Data</p>
     <p class="hero-desc">
-      Magna Cum Laude graduate of BS Mathematics with Applied Statistics. I build e-learning courses
+      Instructor at Bulacan State University and Magna Cum Laude graduate of BS Mathematics (Applied Statistics). I teach statistics and build e-learning courses
       that are evidence-based, accessible, and genuinely useful — combining a statistician's rigor
       with an instructional designer's craft.
     </p>
     <div class="hero-cta">
-      <a class="btn btn-primary" href="#courses">View Sample Courses</a>
+      <a class="btn btn-primary" href="#teaching">Courses I Teach</a>
       <a class="btn btn-outline" href="#contact">Get in Touch</a>
       <a class="btn btn-outline" href="./Jerahmeel_Hipolito_CV.pdf" target="_blank" rel="noopener">Download CV</a>
     </div>
@@ -426,7 +470,15 @@
   </div>
 
   <div class="hero-right">
-    <img class="hero-image" src="https://images.unsplash.com/photo-1522204523234-8729aa6e3d5f?auto=format&fit=crop&w=800&q=80" alt="E-learning and professional workspace" loading="lazy" />
+    <svg class="hero-art" viewBox="0 0 400 480" role="img" aria-label="Scatter plot with regression line over a graph-paper grid" xmlns="http://www.w3.org/2000/svg">
+      <defs><pattern id="g" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#BFDBFE" stroke-width="1"/></pattern>
+      <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E3EDFF"/><stop offset="1" stop-color="#DBEAFE"/></linearGradient></defs>
+      <rect width="400" height="480" fill="url(#bg)"/><rect width="400" height="480" fill="url(#g)"/>
+      <line x1="40" y1="420" x2="370" y2="90" stroke="#2563EB" stroke-width="3" stroke-linecap="round"/>
+      <g fill="#1740A6"><circle cx="70" cy="380" r="6"/><circle cx="105" cy="365" r="6"/><circle cx="130" cy="330" r="6"/><circle cx="170" cy="340" r="6"/><circle cx="200" cy="285" r="6"/><circle cx="235" cy="270" r="6"/><circle cx="265" cy="225" r="6"/><circle cx="300" cy="200" r="6"/><circle cx="335" cy="140" r="6"/></g>
+      <g fill="#93C5FD"><circle cx="90" cy="410" r="5"/><circle cx="150" cy="300" r="5"/><circle cx="215" cy="330" r="5"/><circle cx="280" cy="170" r="5"/><circle cx="350" cy="110" r="5"/></g>
+      <text x="40" y="60" font-family="Outfit, sans-serif" font-size="14" font-weight="700" fill="#0B1F52" letter-spacing="2">y = β₀ + β₁x + ε</text>
+    </svg>
   </div>
 </section>
 
@@ -437,9 +489,7 @@
   <div class="about-grid">
     <div class="about-text reveal">
       <p>I am currently pursuing my Master's Degree (MS Statistics) at University of the Philippines Diliman. I graduated Magna Cum Laude in 2025 with a Bachelor of Science in Mathematics with Specialization in Applied Statistics from Bulacan State University. My work sits at the intersection of data-driven thinking and human-centered design.</p>
-      <p>As a freelance Instructional Designer at TAGLearning, I developed 13 e-learning courses
-      for education professionals, translating dense legal and procedural content into
-      structured, learner-centered experiences using Articulate Rise 360 and Thinkific.</p>
+      <p>Since 2026 I have been an Instructor at Bulacan State University, teaching Statistical Software Applications, Applied Multivariate Analysis, and Biostatistics and Epidemiology through Rise 360 microlearning lessons hosted on my own tracking portal. Before that (2025 – 2026), as a freelance Instructional Designer at TAGLearning, I developed 13 e-learning courses for education professionals, translating dense legal and procedural content into structured, learner-centered experiences using Articulate Rise 360 and Thinkific.</p>
       <p>I'm passionate about how well-designed learning experiences can genuinely change what
       people know and can do. I'm eager to bring that passion to a collaborative ID team
       where data and design work together.</p>
@@ -458,8 +508,8 @@
         <div class="stat-label">Awards · Class of 2025</div>
       </div>
       <div class="stat-cell">
-        <div class="stat-num">8</div>
-        <div class="stat-label">LinkedIn Learning Certificates</div>
+        <div class="stat-num">3</div>
+        <div class="stat-label">University Courses Taught</div>
       </div>
     </div>
   </div>
@@ -558,8 +608,22 @@
   <div class="timeline reveal">
 
     <div class="timeline-item">
-      <div class="timeline-meta">2025 – Present · Freelance</div>
-      <div class="timeline-role">Instructional Designer</div>
+      <div class="timeline-meta">2026 – Present</div>
+      <div class="timeline-role">Instructor <span class="role-badge">Current</span></div>
+      <div class="timeline-org">College of Science — Bulacan State University</div>
+      <div class="timeline-body">
+        <ul>
+          <li>Teach <em>MAS 303a Statistical Software Applications</em>, <em>MAS 305a Applied Multivariate Analysis</em>, and <em>MLSBE 201 Biostatistics and Epidemiology</em> to roughly 200 students.</li>
+          <li>Built 53 Rise 360 microlearning lessons across 32 chapters, hosted on GitHub Pages with lesson-level analytics logged to Google Sheets through Apps Script.</li>
+          <li>Apply clear learning outcomes, scaffolded content, and performance-based assessment to make quantitative concepts accessible and practical.</li>
+        </ul>
+        <div class="tag-row"><span>Teaching</span><span>R &amp; SPSS</span><span>Rise 360</span><span>Learning Analytics</span></div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-meta">2025 – 2026 · Freelance · Remote (US Special Education Sector)</div>
+      <div class="timeline-role">Instructional Designer <span class="role-badge past">Past</span></div>
       <div class="timeline-org">TAGLearning</div>
       <div class="timeline-body">
         <ul>
@@ -603,9 +667,54 @@
   </div>
 </section>
 
+<section id="teaching">
+  <p class="section-eyebrow reveal">04 — Teaching</p>
+  <h2 class="section-title reveal">Courses I <span>teach</span></h2>
+  <div class="section-rule reveal"></div>
+  <p class="reveal" style="font-size:0.88rem;color:var(--text-muted);max-width:560px;margin-bottom:2rem;line-height:1.75;">
+    Three courses at Bulacan State University, delivered as Rise 360 microlearning lessons on a GitHub Pages portal that logs lesson attempts to Google Sheets. Each preview opens the first lesson of the course.
+  </p>
+  <div class="teach-grid reveal">
+    <article class="teach-card">
+      <div class="teach-head"><div class="teach-code">MAS 303a</div><div class="teach-name">Statistical Software Applications</div></div>
+      <div class="teach-body">
+        <p class="teach-desc">Hands-on statistical computing in R and SPSS, from first script to reproducible report.</p>
+        <div class="teach-meta"><span><b>8</b> chapters</span><span><b>16</b> lessons</span><span><b>12</b> live</span></div>
+        <div class="teach-actions">
+          <a class="primary" href="https://jerahmeel-hipolito.github.io/Rise360-Microlearning-1st-Semester-2026-2027/courses/ssa/chapter-01/lesson-01/rise/index.html" target="_blank" rel="noopener">Preview Lesson 1</a>
+          <a class="ghost" href="https://jerahmeel-hipolito.github.io/Rise360-Microlearning-1st-Semester-2026-2027/course-ssa.html" target="_blank" rel="noopener">Course page</a>
+        </div>
+      </div>
+    </article>
+    <article class="teach-card">
+      <div class="teach-head"><div class="teach-code">MAS 305a</div><div class="teach-name">Applied Multivariate Analysis</div></div>
+      <div class="teach-body">
+        <p class="teach-desc">Multivariate methods for research, from MANOVA and factor analysis to full SEM.</p>
+        <div class="teach-meta"><span><b>11</b> chapters</span><span><b>21</b> lessons</span><span><b>10</b> live</span></div>
+        <div class="teach-actions">
+          <a class="primary" href="https://jerahmeel-hipolito.github.io/Rise360-Microlearning-1st-Semester-2026-2027/courses/ama/chapter-01/lesson-01/rise/index.html" target="_blank" rel="noopener">Preview Lesson 1</a>
+          <a class="ghost" href="https://jerahmeel-hipolito.github.io/Rise360-Microlearning-1st-Semester-2026-2027/course-ama.html" target="_blank" rel="noopener">Course page</a>
+        </div>
+      </div>
+    </article>
+    <article class="teach-card">
+      <div class="teach-head"><div class="teach-code">MLSBE 201</div><div class="teach-name">Biostatistics and Epidemiology</div></div>
+      <div class="teach-body">
+        <p class="teach-desc">Foundations of biostatistics and epidemiologic reasoning for the health sciences.</p>
+        <div class="teach-meta"><span><b>8</b> chapters</span><span><b>16</b> lessons</span><span><b>11</b> live</span></div>
+        <div class="teach-actions">
+          <a class="primary" href="https://jerahmeel-hipolito.github.io/Rise360-Microlearning-1st-Semester-2026-2027/courses/biostatistics/chapter-01/lesson-01/rise/index.html" target="_blank" rel="noopener">Preview Lesson 1</a>
+          <a class="ghost" href="https://jerahmeel-hipolito.github.io/Rise360-Microlearning-1st-Semester-2026-2027/course-biostatistics.html" target="_blank" rel="noopener">Course page</a>
+        </div>
+      </div>
+    </article>
+  </div>
+  <p class="teach-note reveal">Full course pages are for enrolled students and ask for a Student ID. "Live" counts lessons already published; the rest are being added during the semester. <a href="https://jerahmeel-hipolito.github.io/Rise360-Microlearning-1st-Semester-2026-2027" target="_blank" rel="noopener">Open the portal</a>.</p>
+</section>
+
 <section id="courses">
-  <p class="section-eyebrow reveal">04 — Sample Coursework</p>
-  <h2 class="section-title reveal">Instructional Design <span>Portfolio</span></h2>
+  <p class="section-eyebrow reveal">05 — Sample Coursework</p>
+  <h2 class="section-title reveal">Instructional Design <span>Samples</span></h2>
   <div class="section-rule reveal"></div>
   <p class="reveal" style="font-size:0.88rem;color:var(--text-muted);max-width:540px;margin-bottom:2rem;line-height:1.75;">
     A selection of e-learning modules built with Articulate Rise 360, demonstrating course architecture,
@@ -669,7 +778,7 @@
 </section>
 
 <section id="education">
-  <p class="section-eyebrow reveal">05 — Education &amp; Honors</p>
+  <p class="section-eyebrow reveal">06 — Education &amp; Honors</p>
   <h2 class="section-title reveal">Where I <span>studied</span></h2>
   <div class="section-rule reveal"></div>
   <div class="edu-awards-grid reveal">
@@ -710,7 +819,7 @@
 </section>
 
 <section id="research">
-  <p class="section-eyebrow reveal">06 — Undergraduate Research</p>
+  <p class="section-eyebrow reveal">07 — Undergraduate Research</p>
   <h2 class="section-title reveal">Featured <span>Research</span></h2>
   <div class="section-rule reveal"></div>
 
@@ -795,7 +904,7 @@
 </section>
 
 <section id="certificates">
-  <p class="section-eyebrow reveal">07 — Certificates</p>
+  <p class="section-eyebrow reveal">08 — Certificates</p>
   <h2 class="section-title reveal">Professional <span>Certificates</span></h2>
   <div class="section-rule reveal"></div>
   <p class="reveal" style="font-size:0.88rem;color:var(--text-muted);max-width:540px;margin-bottom:2rem;line-height:1.75;">
@@ -969,7 +1078,7 @@
 </section>
 
 <section id="contact" style="background:var(--navy);">
-  <p class="section-eyebrow" style="color:var(--blue-light);text-align:center;">08 — Contact</p>
+  <p class="section-eyebrow" style="color:var(--blue-light);text-align:center;">09 — Contact</p>
   <p class="contact-lead">Open to instructional design roles, e-learning projects, and research collaborations.</p>
   <div class="contact-links">
     <a class="btn btn-primary" href="mailto:hipolitojerahmeel12@gmail.com">Email Me</a>
@@ -990,6 +1099,15 @@
     });
   }, { threshold: 0.08 });
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+<script>
+  const toggle = document.querySelector('.nav-toggle'), links = document.getElementById('navlinks');
+  toggle.addEventListener('click', () => { const o = links.classList.toggle('open'); toggle.setAttribute('aria-expanded', o); });
+  links.addEventListener('click', e => { if (e.target.tagName === 'A') { links.classList.remove('open'); toggle.setAttribute('aria-expanded', false); } });
+  const spy = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) document.querySelectorAll('.nav-links a').forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
+  }), { rootMargin: '-45% 0px -50% 0px' });
+  document.querySelectorAll('section[id]').forEach(sec => spy.observe(sec));
 </script>
 </body>
 </html>
