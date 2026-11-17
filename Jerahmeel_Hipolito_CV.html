@@ -408,12 +408,15 @@
       box-shadow: none !important;
       width: 210mm !important;
       overflow: hidden !important;
+      height: 374mm !important;
+      display: flex; flex-direction: column;
       page-break-after: always;
       page-break-inside: avoid;
     }
     .page:last-child { page-break-after: auto; }
-    @page { size: A4; margin: 0mm; }
+    @page { size: 210mm 374mm; margin: 0mm; }
   }
+  @media print { .page > * { flex-shrink: 0; } .page .body { flex: 1 0 auto; } .page-footer { margin-top: auto; } }
 </style>
 </head>
 <body>
@@ -455,14 +458,11 @@
     <!-- PROFESSIONAL SUMMARY -->
     <h2>Professional Summary</h2>
     <p class="about-text">
-      Magna Cum Laude graduate of BS Mathematics (Applied Statistics) and incoming MS Statistics student
-      at the University of the Philippines Diliman. Combines a strong foundation in statistical theory and
-      applied research with hands-on experience delivering end-to-end instructional design for US special
-      education professionals — applying ADDIE, rapid iterative development, and AI-powered tools to build
-      scalable, high-quality eLearning using Articulate Rise 360. Skilled at translating complex quantitative
-      concepts into structured, learner-centered content that drives comprehension, skill application, and
-      long-term retention. Recognized as Best Thesis awardee by the College of Science, Bulacan State University,
-      and presented applied statistical research at the National Convention on Statistics.
+      Magna Cum Laude graduate of BS Mathematics (Applied Statistics), Instructor at Bulacan State University, and incoming
+      MS Statistics student at the University of the Philippines Diliman. Combines a strong foundation in statistical
+      theory and applied research with hands-on experience in end-to-end instructional design for US special education
+      professionals — applying ADDIE, rapid iterative development, and AI-powered tools to build scalable eLearning in
+      Articulate Rise 360. Best Thesis awardee who presented applied statistical research at the National Convention on Statistics.
     </p>
 
     <!-- TECHNICAL & PROFESSIONAL SKILLS -->
@@ -470,15 +470,15 @@
     <div class="skills-grid">
       <div class="skill-col">
         <strong>Instructional Design</strong>
-        <p>End-to-End ID Process · Needs Analysis · ADDIE Framework · Rapid Iterative Development · Performance-Based Assessments · Learning Outcome Mapping · Storyboarding · Change Management · Accessible Content Design</p>
+        <p>End-to-End ID Process · Needs Analysis · ADDIE · Rapid Iterative Development · Performance-Based Assessments · Storyboarding · Accessible Content Design</p>
       </div>
       <div class="skill-col">
         <strong>Tools &amp; Platforms</strong>
-        <p>Articulate Rise 360 · Articulate Storyline · Articulate 360 · Thinkific · R · SPSS · Microsoft Office · Google Workspace · Notion · Canva · HTML / CSS / JS · Python</p>
+        <p>Articulate Rise 360 · Storyline · Thinkific · R · SPSS · Python · HTML / CSS / JS · Microsoft Office · Google Workspace · Canva</p>
       </div>
       <div class="skill-col">
         <strong>Research &amp; Analytics</strong>
-        <p>Learner Engagement Analysis · Learning Effectiveness Metrics · Statistical Modeling · Quantitative Research · GenAI Applications in Education · xAPI / Learning Analytics · Technical Writing · Cross-Functional Collaboration</p>
+        <p>Learner Engagement Analysis · Learning Effectiveness Metrics · Statistical Modeling · Quantitative Research · GenAI in Education · xAPI / Learning Analytics · Technical Writing</p>
       </div>
     </div>
 
@@ -487,16 +487,28 @@
 
     <div class="entry">
       <div class="entry-header">
+        <span class="entry-title">Instructor</span>
+        <span class="entry-date">2026 – Present</span>
+      </div>
+      <div class="entry-meta">College of Science, Bulacan State University</div>
+      <ul>
+        <li><strong>Teach Statistical Software Applications, Applied Statistical Analysis, and Elementary Statistics.</strong></li>
+        <li><strong>Apply instructional design practices</strong> such as clear learning outcomes, scaffolded content, and performance-based assessment to make quantitative concepts accessible and practical.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
         <span class="entry-title">Instructional Designer — TAGLearning</span>
-        <span class="entry-date">2025 – Present</span>
+        <span class="entry-date">2025 – 2026</span>
       </div>
       <div class="entry-meta">Freelance · Remote (US Special Education Sector)</div>
       <ul>
         <li><strong>Owned end-to-end ID process</strong> for 13 eLearning courses for educators and professionals, applying rapid iterative development and ADDIE from needs analysis through delivery.</li>
-        <li><strong>Designed performance-based assessments</strong> aligned to learning objectives, ensuring measurable skill application and sustained learner self-sufficiency post-training.</li>
-        <li><strong>Leveraged AI-powered tools</strong> alongside Articulate Rise 360 — including the Code Block feature with HTML, CSS, and JavaScript — to streamline design workflows and improve content scalability across all deliverables.</li>
-        <li><strong>Translated dense legal and compliance content</strong> into structured, learner-centered modules, maintaining quality standards and design consistency across all 13 courses.</li>
-        <li><strong>Collaborated with cross-functional subject-matter experts</strong> to align course content with US compliance standards, current best practices, and evolving product needs.</li>
+        <li><strong>Designed performance-based assessments</strong> aligned to learning objectives for measurable skill application.</li>
+        <li><strong>Leveraged AI-powered tools</strong> alongside Articulate Rise 360 (including Code Blocks with HTML, CSS, and JavaScript) to streamline workflows and scale content.</li>
+        <li><strong>Translated dense legal and compliance content</strong> into structured, learner-centered modules with consistent quality across all 13 courses.</li>
+        <li><strong>Collaborated with subject-matter experts</strong> to align content with US compliance standards.</li>
       </ul>
     </div>
 
@@ -507,8 +519,8 @@
       </div>
       <div class="entry-meta">Office of the National Statistician, Philippine Statistics Authority</div>
       <ul>
-        <li><strong>Analyzed cross-country copyright frameworks</strong> by benchmarking multiple markets, delivering evidence-based recommendations for national creative economy policy.</li>
-        <li><strong>Produced gig economy data reports</strong> by conducting targeted benchmarking research, informing strategic methodology decisions at the national statistical level.</li>
+        <li><strong>Analyzed cross-country copyright frameworks</strong>, delivering evidence-based recommendations for national creative economy policy.</li>
+        <li><strong>Produced gig economy data reports</strong> through targeted benchmarking research, informing national methodology decisions.</li>
       </ul>
     </div>
 
@@ -519,7 +531,7 @@
       </div>
       <div class="entry-meta">College of Science, Bulacan State University</div>
       <ul>
-        <li><strong>Assisted in academic research</strong> through systematic literature reviews and research paper development, contributing to BulSU's published departmental output.</li>
+        <li><strong>Assisted in academic research</strong> through literature reviews and paper development.</li>
       </ul>
     </div>
 
