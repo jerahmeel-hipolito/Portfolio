@@ -430,10 +430,35 @@
     .nav-links.open a { display: block; padding: .6rem 0; }
   }
   @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; scroll-behavior: auto !important; } .reveal { opacity: 1 !important; transform: none !important; } }
+
+  /* ===== v3 ===== */
+  .hero-right { align-self: center; }
+  .hero-card { width: 100%; height: clamp(400px, 56vh, 510px); filter: drop-shadow(0 24px 40px rgba(11,31,82,.12)); }
+  .hero-art { width: 100%; height: 100%; }
+  .draw { stroke-dasharray: 1; stroke-dashoffset: 1; animation: drawln 1.8s .8s ease forwards; }
+  .draw[x1] { stroke-dasharray: 700; stroke-dashoffset: 700; }
+  @keyframes drawln { to { stroke-dashoffset: 0; } }
+  .bar { transform-box: fill-box; transform-origin: bottom; animation: growbar .7s ease both; }
+  @keyframes growbar { from { transform: scaleY(0); } }
+  .pt, .cell { animation: popin .5s ease both; transform-box: fill-box; transform-origin: center; }
+  @keyframes popin { from { opacity: 0; transform: scale(.3); } }
+  .teach-head { min-height: 200px; display: flex; flex-direction: column; justify-content: flex-end; background: linear-gradient(180deg, rgba(11,31,82,.15) 0%, rgba(11,31,82,.88) 100%), var(--img) center/cover; }
+  .progress-bar { position: fixed; top: 0; left: 0; height: 3px; width: 0; background: linear-gradient(90deg, var(--blue), var(--blue-light)); z-index: 400; }
+  nav.scrolled { box-shadow: 0 6px 24px rgba(11,31,82,.08); }
+  .to-top { position: fixed; right: 1.25rem; bottom: 1.25rem; width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--border); background: var(--white); color: var(--blue); font-size: 1.1rem; cursor: pointer; opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s; box-shadow: 0 8px 20px rgba(11,31,82,.12); z-index: 150; }
+  .to-top.show { opacity: 1; pointer-events: auto; }
+  .to-top:hover { transform: translateY(-3px); }
+  .stat-cell { transition: background .2s, transform .2s; border-radius: 10px; }
+  .stat-cell:hover { background: var(--white); transform: translateY(-2px); }
+  .timeline-item:first-child::before { animation: pulse 2s infinite; }
+  @keyframes pulse { 0% { box-shadow: 0 0 0 1px var(--blue), 0 0 0 0 rgba(37,99,235,.4); } 70% { box-shadow: 0 0 0 1px var(--blue), 0 0 0 9px rgba(37,99,235,0); } 100% { box-shadow: 0 0 0 1px var(--blue); } }
+  @media (max-width: 900px) { .hero-right { display: block; } .hero-card { height: auto; aspect-ratio: 560/540; } #hero { grid-template-columns: 1fr; } }
+  @media (prefers-reduced-motion: reduce) { .draw { stroke-dashoffset: 0 !important; } .bar, .pt, .cell { transform: none !important; opacity: 1 !important; } }
 </style>
 </head>
 <body>
 
+<div class="progress-bar" id="pbar"></div>
 <a class="skip-link" href="#about">Skip to content</a>
 <nav aria-label="Main">
   <a class="nav-logo" href="#hero">JH<span>.</span></a>
@@ -469,16 +494,30 @@
     <div class="hero-scroll"><span class="scroll-line"></span> Scroll to explore</div>
   </div>
 
-  <div class="hero-right">
-    <svg class="hero-art" viewBox="0 0 400 480" role="img" aria-label="Scatter plot with regression line over a graph-paper grid" xmlns="http://www.w3.org/2000/svg">
-      <defs><pattern id="g" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#BFDBFE" stroke-width="1"/></pattern>
-      <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E3EDFF"/><stop offset="1" stop-color="#DBEAFE"/></linearGradient></defs>
-      <rect width="400" height="480" fill="url(#bg)"/><rect width="400" height="480" fill="url(#g)"/>
-      <line x1="40" y1="420" x2="370" y2="90" stroke="#2563EB" stroke-width="3" stroke-linecap="round"/>
-      <g fill="#1740A6"><circle cx="70" cy="380" r="6"/><circle cx="105" cy="365" r="6"/><circle cx="130" cy="330" r="6"/><circle cx="170" cy="340" r="6"/><circle cx="200" cy="285" r="6"/><circle cx="235" cy="270" r="6"/><circle cx="265" cy="225" r="6"/><circle cx="300" cy="200" r="6"/><circle cx="335" cy="140" r="6"/></g>
-      <g fill="#93C5FD"><circle cx="90" cy="410" r="5"/><circle cx="150" cy="300" r="5"/><circle cx="215" cy="330" r="5"/><circle cx="280" cy="170" r="5"/><circle cx="350" cy="110" r="5"/></g>
-      <text x="40" y="60" font-family="Outfit, sans-serif" font-size="14" font-weight="700" fill="#0B1F52" letter-spacing="2">y = β₀ + β₁x + ε</text>
-    </svg>
+  <div class="hero-right"><div class="hero-card">
+    <svg class="hero-art" viewBox="0 0 560 540" role="img" aria-label="Statistics dashboard: scatter plot with regression line and confidence band, histogram with normal curve, and a correlation heatmap" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+      <defs><linearGradient id="band" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#93C5FD" stop-opacity=".25"/><stop offset="1" stop-color="#2563EB" stop-opacity=".3"/></linearGradient>
+      <pattern id="gp" width="36" height="36" patternUnits="userSpaceOnUse"><path d="M36 0H0V36" fill="none" stroke="#DBEAFE" stroke-width="1"/></pattern></defs>
+      <rect x="8" y="8" width="544" height="524" rx="22" fill="#fff" stroke="#BFDBFE"/>
+      <rect x="8" y="8" width="544" height="524" rx="22" fill="url(#gp)" opacity=".7"/>
+      <circle cx="40" cy="38" r="5" fill="#93C5FD"/><circle cx="58" cy="38" r="5" fill="#BFDBFE"/><circle cx="76" cy="38" r="5" fill="#DBEAFE"/>
+      <text x="100" y="43" font-family="Outfit,sans-serif" font-size="12" font-weight="600" fill="#5B7FA6" letter-spacing="1.5">LINEAR MODEL · n = 200</text>
+      <rect x="400" y="24" width="120" height="30" rx="15" fill="#2563EB"/><text x="460" y="44" text-anchor="middle" font-family="Outfit,sans-serif" font-size="13" font-weight="700" fill="#fff">R² = 0.87</text>
+      <path d="M50 100V290H520" fill="none" stroke="#93C5FD" stroke-width="1.5"/>
+      <polygon points="55,255 95,242 135,228 175,214 215,201 255,187 295,172 335,154 375,136 415,117 455,99 495,80 495,134 455,147 415,161 375,174 335,188 295,202 255,219 215,237 175,256 135,274 95,292 55,311" fill="url(#band)"/>
+      <circle cx="59" cy="292" r="5.5" fill="#3B82F6" fill-opacity=".9" class="pt" style="animation-delay:0.40s"/><circle cx="70" cy="292" r="4.5" fill="#1740A6" fill-opacity=".9" class="pt" style="animation-delay:0.43s"/><circle cx="87" cy="268" r="4.5" fill="#1740A6" fill-opacity=".9" class="pt" style="animation-delay:0.46s"/><circle cx="100" cy="270" r="5.5" fill="#3B82F6" fill-opacity=".9" class="pt" style="animation-delay:0.49s"/><circle cx="109" cy="257" r="4.5" fill="#1740A6" fill-opacity=".9" class="pt" style="animation-delay:0.52s"/><circle cx="123" cy="259" r="4.5" fill="#1740A6" fill-opacity=".9" class="pt" style="animation-delay:0.55s"/><circle cx="139" cy="254" r="5.5" fill="#3B82F6" fill-opacity=".9" class="pt" style="animation-delay:0.58s"/><circle cx="150" cy="239" r="4.5" fill="#1740A6" fill-opacity=".9" class="pt" style="animation-delay:0.61s"/><circle cx="167" cy="258" r="4.5" fill="#1740A6" fill-opacity=".9" class="pt" style="animation-delay:0.64s"/><circle cx="178" cy="228" r="5.5" fill="#3B82F6" fill-opacity=".9" class="pt" style="animation-delay:0.67s"/><circle cx="196" cy="256" r="4.5" fill="#1740A6" fill-opacity=".9" class="pt" style="animation-delay:0.70s"/><circle cx="204" cy="233" r="4.5" fill="#1740A6" fill-opacity=".9" class="pt" style="animation-delay:0.73s"/><circle cx="216" cy="229" r="5.5" fill="#3B82F6" fill-opacity=".9" class="pt" style="animation-delay:0.76s"/><circle cx="234" cy="221" r="4.5" fill="#1740A6" fill-opacity=".9" class="pt" style="animation-delay:0.79s"/><circle cx="242" cy="190" r="4.5" fill="#1740A6" fill-opacity=".9" class="pt" style="animation-delay:0.82s"/><circle cx="257" cy="193" r="5.5" fill="#3B82F6" fill-opacity=".9" class="pt" style="animation-delay:0.85s"/><circle cx="272" cy="202" r="4.5" fill="#1740A6" fill-opacity=".9" class="pt" style="animation-delay:0.88s"/><circle cx="282" cy="195" r="4.5" fill="#1740A6" fill-opacity=".9" class="pt" style="animation-delay:0.91s"/><circle cx="299" cy="175" r="5.5" fill="#3B82F6" fill-opacity=".9" class="pt" style="animation-delay:0.94s"/><circle cx="311" cy="187" r="4.5" fill="#1740A6" fill-opacity=".9" class="pt" style="animation-delay:0.97s"/><circle cx="324" cy="168" r="4.5" fill="#1740A6" fill-opacity=".9" class="pt" style="animation-delay:1.00s"/><circle cx="339" cy="196" r="5.5" fill="#3B82F6" fill-opacity=".9" class="pt" style="animation-delay:1.03s"/><circle cx="348" cy="150" r="4.5" fill="#1740A6" fill-opacity=".9" class="pt" style="animation-delay:1.06s"/><circle cx="367" cy="151" r="4.5" fill="#1740A6" fill-opacity=".9" class="pt" style="animation-delay:1.09s"/><circle cx="379" cy="145" r="5.5" fill="#3B82F6" fill-opacity=".9" class="pt" style="animation-delay:1.12s"/><circle cx="387" cy="192" r="4.5" fill="#1740A6" fill-opacity=".9" class="pt" style="animation-delay:1.15s"/><circle cx="403" cy="145" r="4.5" fill="#1740A6" fill-opacity=".9" class="pt" style="animation-delay:1.18s"/><circle cx="416" cy="131" r="5.5" fill="#3B82F6" fill-opacity=".9" class="pt" style="animation-delay:1.21s"/><circle cx="426" cy="123" r="4.5" fill="#1740A6" fill-opacity=".9" class="pt" style="animation-delay:1.24s"/><circle cx="443" cy="112" r="4.5" fill="#1740A6" fill-opacity=".9" class="pt" style="animation-delay:1.27s"/><circle cx="459" cy="113" r="5.5" fill="#3B82F6" fill-opacity=".9" class="pt" style="animation-delay:1.30s"/><circle cx="470" cy="139" r="4.5" fill="#1740A6" fill-opacity=".9" class="pt" style="animation-delay:1.33s"/><circle cx="483" cy="112" r="4.5" fill="#1740A6" fill-opacity=".9" class="pt" style="animation-delay:1.36s"/><circle cx="499" cy="114" r="5.5" fill="#3B82F6" fill-opacity=".9" class="pt" style="animation-delay:1.39s"/>
+      <line class="draw" x1="55" y1="283" x2="515" y2="99" stroke="#0B1F52" stroke-width="3" stroke-linecap="round"/>
+      <text x="62" y="118" font-family="Outfit,sans-serif" font-size="13" font-weight="700" fill="#0B1F52">ŷ = β₀ + β₁x</text>
+      <text x="62" y="136" font-family="Outfit,sans-serif" font-size="11" fill="#5B7FA6">95% confidence band</text>
+      <text x="44" y="334" font-family="Outfit,sans-serif" font-size="11" font-weight="600" fill="#5B7FA6" letter-spacing="1.5">DISTRIBUTION</text>
+      <text x="330" y="334" font-family="Outfit,sans-serif" font-size="11" font-weight="600" fill="#5B7FA6" letter-spacing="1.5">CORRELATION</text>
+      <line x1="40" y1="490" x2="268" y2="490" stroke="#93C5FD" stroke-width="1.5"/>
+      <rect class="bar" x="44" y="476" width="20" height="14" rx="3" fill="#93C5FD" style="animation-delay:0.70s"/><rect class="bar" x="68" y="460" width="20" height="30" rx="3" fill="#93C5FD" style="animation-delay:0.77s"/><rect class="bar" x="92" y="437" width="20" height="53" rx="3" fill="#93C5FD" style="animation-delay:0.84s"/><rect class="bar" x="116" y="405" width="20" height="85" rx="3" fill="#93C5FD" style="animation-delay:0.91s"/><rect class="bar" x="140" y="372" width="20" height="118" rx="3" fill="#93C5FD" style="animation-delay:0.98s"/><rect class="bar" x="164" y="398" width="20" height="92" rx="3" fill="#93C5FD" style="animation-delay:1.05s"/><rect class="bar" x="188" y="431" width="20" height="59" rx="3" fill="#93C5FD" style="animation-delay:1.12s"/><rect class="bar" x="212" y="457" width="20" height="33" rx="3" fill="#93C5FD" style="animation-delay:1.19s"/><rect class="bar" x="236" y="475" width="20" height="15" rx="3" fill="#93C5FD" style="animation-delay:1.26s"/>
+      <path class="draw" d="M44,488 L46,487 L48,487 L50,486 L52,486 L54,485 L57,484 L59,483 L61,482 L63,481 L65,480 L67,479 L69,478 L71,476 L73,475 L76,473 L78,471 L80,469 L82,467 L84,465 L86,462 L88,459 L90,457 L92,454 L94,451 L96,447 L99,444 L101,441 L103,437 L105,433 L107,430 L109,426 L111,422 L113,418 L115,414 L118,410 L120,407 L122,403 L124,399 L126,396 L128,392 L130,389 L132,386 L134,384 L136,381 L138,379 L141,377 L143,375 L145,374 L147,373 L149,372 L151,372 L153,372 L155,372 L157,373 L160,374 L162,376 L164,377 L166,379 L168,381 L170,384 L172,387 L174,390 L176,393 L178,396 L180,400 L183,403 L185,407 L187,411 L189,415 L191,419 L193,422 L195,426 L197,430 L199,434 L202,438 L204,441 L206,445 L208,448 L210,451 L212,454 L214,457 L216,460 L218,462 L220,465 L222,467 L225,469 L227,471 L229,473 L231,475 L233,477 L235,478 L237,479 L239,481 L241,482 L244,483 L246,483 L248,484 L250,485 L252,486 L254,486 L256,487 L258,487 L260,488 L262,488 L264,488" fill="none" stroke="#1740A6" stroke-width="2.5" stroke-linecap="round" pathLength="1"/>
+      <rect x="330" y="350" width="43" height="32" rx="6" fill="#1740a6" class="cell" style="animation-delay:1.00s"/><rect x="376" y="350" width="43" height="32" rx="6" fill="#3a5eb5" class="cell" style="animation-delay:1.08s"/><rect x="422" y="350" width="43" height="32" rx="6" fill="#96aedf" class="cell" style="animation-delay:1.16s"/><rect x="468" y="350" width="43" height="32" rx="6" fill="#c7d9f5" class="cell" style="animation-delay:1.24s"/><rect x="330" y="385" width="43" height="32" rx="6" fill="#3a5eb5" class="cell" style="animation-delay:1.08s"/><rect x="376" y="385" width="43" height="32" rx="6" fill="#1740a6" class="cell" style="animation-delay:1.16s"/><rect x="422" y="385" width="43" height="32" rx="6" fill="#6f8ccd" class="cell" style="animation-delay:1.24s"/><rect x="468" y="385" width="43" height="32" rx="6" fill="#b3c8ec" class="cell" style="animation-delay:1.32s"/><rect x="330" y="420" width="43" height="32" rx="6" fill="#96aedf" class="cell" style="animation-delay:1.16s"/><rect x="376" y="420" width="43" height="32" rx="6" fill="#6f8ccd" class="cell" style="animation-delay:1.24s"/><rect x="422" y="420" width="43" height="32" rx="6" fill="#1740a6" class="cell" style="animation-delay:1.32s"/><rect x="468" y="420" width="43" height="32" rx="6" fill="#5173c0" class="cell" style="animation-delay:1.40s"/><rect x="330" y="455" width="43" height="32" rx="6" fill="#c7d9f5" class="cell" style="animation-delay:1.24s"/><rect x="376" y="455" width="43" height="32" rx="6" fill="#b3c8ec" class="cell" style="animation-delay:1.32s"/><rect x="422" y="455" width="43" height="32" rx="6" fill="#5173c0" class="cell" style="animation-delay:1.40s"/><rect x="468" y="455" width="43" height="32" rx="6" fill="#1740a6" class="cell" style="animation-delay:1.48s"/>
+      <text x="44" y="518" font-family="Outfit,sans-serif" font-size="11" fill="#5B7FA6">Normal curve fit · p &lt; .001</text>
+      <text x="330" y="518" font-family="Outfit,sans-serif" font-size="11" fill="#5B7FA6">Pearson r, 4 variables</text>
+    </svg></div>
   </div>
 </section>
 
@@ -613,7 +652,7 @@
       <div class="timeline-org">College of Science — Bulacan State University</div>
       <div class="timeline-body">
         <ul>
-          <li>Teach <em>MAS 303a Statistical Software Applications</em>, <em>MAS 305a Applied Multivariate Analysis</em>, and <em>MLSBE 201 Biostatistics and Epidemiology</em> to roughly 200 students.</li>
+          <li>Teach <em>Statistical Software Applications</em>, <em>Applied Multivariate Analysis</em>, and <em>Biostatistics and Epidemiology</em> to roughly 200 students.</li>
           <li>Built 53 Rise 360 microlearning lessons across 32 chapters, hosted on GitHub Pages with lesson-level analytics logged to Google Sheets through Apps Script.</li>
           <li>Apply clear learning outcomes, scaffolded content, and performance-based assessment to make quantitative concepts accessible and practical.</li>
         </ul>
@@ -631,6 +670,15 @@
           <li>Courses include: <em>Using AI for Student Well-Being</em>, <em>Medical Awareness for Educators</em>, <em>Crisis Prevention and Intervention for Leaders</em>, <em>AI for Equity: Addressing Bias and Accessibility in AI-Driven Learning</em>, and more.</li>
           <li>Translated dense legal and procedural material into structured, learner-centered experiences using Articulate Rise 360 and Thinkific.</li>
         </ul>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-meta">2025 · National Conference</div>
+      <div class="timeline-role">Paper Presenter</div>
+      <div class="timeline-org">16th National Convention on Statistics — Philippine Statistics Authority</div>
+      <div class="timeline-body">
+        <p>Presented original research on GenAI Usage at the Computational Statistics Session, representing Bulacan State University at the national conference.</p>
       </div>
     </div>
 
@@ -655,15 +703,6 @@
       </div>
     </div>
 
-    <div class="timeline-item">
-      <div class="timeline-meta">2025 · National Conference</div>
-      <div class="timeline-role">Paper Presenter</div>
-      <div class="timeline-org">16th National Convention on Statistics — Philippine Statistics Authority</div>
-      <div class="timeline-body">
-        <p>Presented original research on GenAI Usage at the Computational Statistics Session, representing Bulacan State University at the national conference.</p>
-      </div>
-    </div>
-
   </div>
 </section>
 
@@ -676,7 +715,7 @@
   </p>
   <div class="teach-grid reveal">
     <article class="teach-card">
-      <div class="teach-head"><div class="teach-code">MAS 303a</div><div class="teach-name">Statistical Software Applications</div></div>
+      <div class="teach-head" style="--img:url(images/teach-ssa.jpg)"><div class="teach-code">MAS 303a</div><div class="teach-name">Statistical Software Applications</div></div>
       <div class="teach-body">
         <p class="teach-desc">Hands-on statistical computing in R and SPSS, from first script to reproducible report.</p>
         <div class="teach-meta"><span><b>8</b> chapters</span><span><b>16</b> lessons</span><span><b>12</b> live</span></div>
@@ -687,7 +726,7 @@
       </div>
     </article>
     <article class="teach-card">
-      <div class="teach-head"><div class="teach-code">MAS 305a</div><div class="teach-name">Applied Multivariate Analysis</div></div>
+      <div class="teach-head" style="--img:url(images/teach-ama.jpg)"><div class="teach-code">MAS 305a</div><div class="teach-name">Applied Multivariate Analysis</div></div>
       <div class="teach-body">
         <p class="teach-desc">Multivariate methods for research, from MANOVA and factor analysis to full SEM.</p>
         <div class="teach-meta"><span><b>11</b> chapters</span><span><b>21</b> lessons</span><span><b>10</b> live</span></div>
@@ -698,7 +737,7 @@
       </div>
     </article>
     <article class="teach-card">
-      <div class="teach-head"><div class="teach-code">MLSBE 201</div><div class="teach-name">Biostatistics and Epidemiology</div></div>
+      <div class="teach-head" style="--img:url(images/teach-biostat.jpg)"><div class="teach-code">MLSBE 201</div><div class="teach-name">Biostatistics and Epidemiology</div></div>
       <div class="teach-body">
         <p class="teach-desc">Foundations of biostatistics and epidemiologic reasoning for the health sciences.</p>
         <div class="teach-meta"><span><b>8</b> chapters</span><span><b>16</b> lessons</span><span><b>11</b> live</span></div>
@@ -724,7 +763,7 @@
 
     <a class="course-card" href="./courses/intro-to-rise360/index.html" target="_blank" rel="noopener">
       <div class="course-thumb">
-        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=640&q=80" alt="People collaborating on a laptop" loading="lazy" onerror="this.parentElement.style.background='var(--blue-pale)';this.style.display='none'" />
+        <img src="images/sample-intro.jpg" alt="People collaborating on a laptop" loading="lazy" onerror="this.parentElement.style.background='var(--blue-pale)';this.style.display='none'" />
         <div class="course-thumb-overlay"><span class="course-num">Course 01</span></div>
       </div>
       <div class="course-body">
@@ -737,7 +776,7 @@
 
     <a class="course-card" href="./courses/what-is-gamification/index.html" target="_blank" rel="noopener">
       <div class="course-thumb">
-        <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=640&q=80" alt="Interactive learning on a tablet" loading="lazy" onerror="this.parentElement.style.background='var(--blue-pale)';this.style.display='none'" />
+        <img src="images/sample-gamification.jpg" alt="Interactive learning on a tablet" loading="lazy" onerror="this.parentElement.style.background='var(--blue-pale)';this.style.display='none'" />
         <div class="course-thumb-overlay"><span class="course-num">Course 02</span></div>
       </div>
       <div class="course-body">
@@ -750,7 +789,7 @@
 
     <a class="course-card" href="./courses/html-css-js-basics/index.html" target="_blank" rel="noopener">
       <div class="course-thumb">
-        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=640&q=80" alt="Code on a monitor screen" loading="lazy" onerror="this.parentElement.style.background='var(--blue-pale)';this.style.display='none'" />
+        <img src="images/sample-htmlcssjs.jpg" alt="Code on a monitor screen" loading="lazy" onerror="this.parentElement.style.background='var(--blue-pale)';this.style.display='none'" />
         <div class="course-thumb-overlay"><span class="course-num">Course 03</span></div>
       </div>
       <div class="course-body">
@@ -763,7 +802,7 @@
 
     <a class="course-card" href="./courses/navigation-tutorial-rise360/index.html" target="_blank" rel="noopener">
       <div class="course-thumb">
-        <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=640&q=80" alt="Person studying with guides and maps" loading="lazy" onerror="this.parentElement.style.background='var(--blue-pale)';this.style.display='none'" />
+        <img src="images/sample-navigation.jpg" alt="Person studying with guides and maps" loading="lazy" onerror="this.parentElement.style.background='var(--blue-pale)';this.style.display='none'" />
         <div class="course-thumb-overlay"><span class="course-num">Course 04</span></div>
       </div>
       <div class="course-body">
@@ -1108,6 +1147,12 @@
     if (e.isIntersecting) document.querySelectorAll('.nav-links a').forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
   }), { rootMargin: '-45% 0px -50% 0px' });
   document.querySelectorAll('section[id]').forEach(sec => spy.observe(sec));
+</script>
+<button class="to-top" id="toTop" aria-label="Back to top">↑</button>
+<script>
+  const pbar=document.getElementById('pbar'), toTop=document.getElementById('toTop'), navEl=document.querySelector('nav');
+  addEventListener('scroll',()=>{const h=document.documentElement; pbar.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%'; toTop.classList.toggle('show',h.scrollTop>600); navEl.classList.toggle('scrolled',h.scrollTop>10);},{passive:true});
+  toTop.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
 </script>
 </body>
 </html>
